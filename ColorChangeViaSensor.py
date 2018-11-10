@@ -19,7 +19,7 @@ LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 Max = 60            #Maximale Entfernung
 X=0                 #Gemessene Entfernung
 Stg = (255*6)/Max   #Steigung/Konstante
-0     #Liste mit RGB Komponenten
+Farbe = [0,0,0]     #Liste mit RGB Komponenten
 
 def setup ():
     #GPIO Modus (BOARD / BCM)
