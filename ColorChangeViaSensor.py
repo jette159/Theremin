@@ -1,68 +1,65 @@
+#Bibliotheken einbinden
 import time
 from rpi_ws281x import *
 import RPi.GPIO as GPIO
-import argparse
 
+#UltraschallSensor
 GPIO_TRIGGER = 11
 GPIO_ECHO = 13
 
-# LED strip configuration:
-LED_COUNT      = 9      # Number of LED pixels.
-LED_PIN        = 18      # GPIO pin connected to the pixels (18 uses PWM!).
-#LED_PIN        = 10      # GPIO pin connected to the pixels (10 uses SPI /dev/spidev0.0).
-LED_FREQ_HZ    = 800000  # LED signal frequency in hertz (usually 800khz)
-LED_DMA        = 10      # DMA channel to use for generating signal (try 10)
-LED_BRIGHTNESS = 40     # Set to 0 for darkest and 255 for brightest
-LED_INVERT     = False   # True to invert the signal (when using NPN transistor level shift)
-LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
+#LED strip configuration:
+LED_COUNT      = 9              # Number of LED pixels.
+LED_PIN        = 18             # GPIO pin connected to the pixels (18 uses PWM!).
+LED_FREQ_HZ    = 800000         # LED signal frequency in hertz (usually 800khz)
+LED_DMA        = 10             # DMA channel to use for generating signal (try 10)         Was macht das?
+LED_BRIGHTNESS = 40             # Set to 0 for darkest and 255 for brightest
+LED_INVERT     = False          # True to invert the signal (when using NPN transistor level shift)
+LED_CHANNEL    = 0              # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
+
+
+#Farbberechnung aus Distanz
 Max = 60            #Maximale Entfernung
 X=0                 #Gemessene Entfernung
 Stg = (255*6)/Max   #Steigung/Konstante
 Farbe = [0,0,0]     #Liste mit RGB Komponenten
 
 def setup ():
-    #GPIO Modus (BOARD / BCM)
-    GPIO.setmode(GPIO.BOARD)
-    #Richtung der GPIO-Pins festlegen (IN / OUT)
-    GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
-    GPIO.setup(GPIO_ECHO, GPIO.IN)
+   GPIO.setmode(GPIO.BOARD)                                #GPIO Modus (BOARD / BCM)
+   GPIO.setup(GPIO_TRIGGER, GPIO.OUT)                      #Richtung der GPIO-Pins festlegen (IN / OUT)
+   GPIO.setup(GPIO_ECHO, GPIO.IN)
 
-def distanz():
-    # setze Trigger auf HIGH
-    GPIO.output(GPIO_TRIGGER, True)
 
-    # setze Trigger nach 0.01ms aus LOW
-    time.sleep(0.00001)
+
+def distance():
+    GPIO.output(GPIO_TRIGGER, True)                     # setze Trigger auf HIGH
+
+    time.sleep(0.00001)                                 # setze Trigger nach 0.01ms aus LOW
     GPIO.output(GPIO_TRIGGER, False)
 
-    StartZeit = time.time()
+    StartZeit = time.time()                             #Start- und Stopzeit definieren
     StopZeit = time.time()
 
-    # speichere Startzeit
-    while GPIO.input(GPIO_ECHO) == 0:
+    while GPIO.input(GPIO_ECHO) == 0:                   # speichere Startzeit
         StartZeit = time.time()
 
-    # speichere Ankunftszeit
-    while GPIO.input(GPIO_ECHO) == 1:
+    while GPIO.input(GPIO_ECHO) == 1:                   # speichere Ankunftszeit
         StopZeit = time.time()
 
-    # Zeit Differenz zwischen Start und Ankunft
-    TimeElapsed = StopZeit - StartZeit
-    # mit der Schallgeschwindigkeit (34300 cm/s) multiplizieren
-    # und durch 2 teilen, da hin und zurueck
-    distanz = (TimeElapsed * 34300) / 2
+    TimeElapsed = StopZeit - StartZeit                  # Zeitdifferenz zwischen Start und Ankunft
 
-    return distanz
+    distanz = (TimeElapsed * 34300) / 2                 # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
+
+    return distanz                                      #Distanz ausgeben
 
 
-def setColor(strip, color):
+def showColor(strip, color):                     #LED Streifen an machen in color
         for i in range(strip.numPixels()):
             strip.setPixelColor(i, color)
             strip.show()
 
 
-def Red():
+def Red():                                  #Festlegung des Rotwerts aus Entfernung
     if X <= 1/6*Max:
         Farbe[0]=255
     elif X <= 2/6*Max:
@@ -74,7 +71,7 @@ def Red():
     else:
         Farbe[0]=255
 
-def Green():
+def Green():                                #Festlegung des Grünwerts aus Entfernung
     if X <= 1/6*Max:
         Farbe[1]=int(Stg*X)
     elif X <= 3/6*Max:
@@ -84,7 +81,7 @@ def Green():
     else:
         Farbe[1]=0
 
-def Blue():
+def Blue():                                 #Festlegung des Blauwerts aus Entfernung
     if X <= 2/6*Max:
         Farbe[2]= 0
     elif X <= 3/6*Max:
@@ -95,6 +92,17 @@ def Blue():
         Farbe[2] = int(-Stg*X+Stg*(6/6)*Max)
     else:
         Farbe[2]=0
+
+def setColor(Distanz):
+    if Distanz <= 0:
+        Farbe = [0,0,0]
+    elif Distanz <= Max:
+        Red()
+        Green()
+        Blue()
+    else:
+        print("zu weit weg")
+
 
 
 setup()
@@ -107,25 +115,13 @@ if __name__ == '__main__':
     try:
 
         while True:
-            X = int(round(float(distanz()),0))-5
-            # X = int(round(float(input("Entfernung")),0))
-            if X <= 0:
-                Farbe = [0,0,0]
-            elif X <= Max:
-                Red()
-                Green()
-                Blue()
-
-                print(Farbe)
-
-            else:
-                print("zu weit weg")
-            setColor(strip, Color(Farbe[0],Farbe[1],Farbe[2]))
+            X = int(round(float(distance()),0))-5        # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
+            setColor(X)
+            #print(Farbe)
+            showColor(strip, Color(Farbe[0],Farbe[1],Farbe[2]))
             time.sleep(0.1)
-
-
 
     except KeyboardInterrupt:
         if args.clear:
-            colorWipe(strip, Color(0,0,0), 10)
+            showColor(strip, Color(0,0,0))
 
