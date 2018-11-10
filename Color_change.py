@@ -23,37 +23,37 @@ def setColor(strip, color):
             strip.show()
 
 
-def Red():
-    if X <= 1/12*Max:
+16def Red():
+    if X <= 1/6*Max:
         Farbe[0]=255
-    elif X <= 3/12*Max:
-        Farbe[0]= int(-Stg*X+Stg*(1/4)*Max)
-    elif  X <= 9/12*Max:
+    elif X <= 2/6*Max:
+        Farbe[0]= int(-Stg*X+Stg*(2/6)*Max)
+    elif  X <= 4/6*Max:
         Farbe[0] = 0
-    elif X <= 11/12*Max:
-        Farbe[0] = int(Stg*X-Stg*(3/4)*Max)
+    elif X <= 5/6*Max:
+        Farbe[0] = int(Stg*X-Stg*(5/6)*Max)
     else:
         Farbe[0]=255
 
 def Green():
-    if X <= 2/12*Max:
+    if X <= 1/6*Max:
         Farbe[1]=int(Stg*X)
-    elif X <= 5/12*Max:
+    elif X <= 3/6*Max:
         Farbe[1]= 255
-    elif  X <= 7/12*Max:
-        Farbe[1] = int(-Stg*X+Stg*(7/12)*Max)
+    elif  X <= 4/6*Max:
+        Farbe[1] = int(-Stg*X+Stg*(4/6)*Max)
     else:
         Farbe[1]=0
 
 def Blue():
-    if X <= 4/12*Max:
+    if X <= 2/6*Max:
         Farbe[2]= 0
-    elif X <= 6/12*Max:
-        Farbe[2]= int(Stg*X-Stg*(1/3)*Max)
-    elif  X <= 9/12*Max:
+    elif X <= 3/6*Max:
+        Farbe[2]= int(Stg*X-Stg*(3/6)*Max)
+    elif  X <= 5/6*Max:
         Farbe[2] = 255
-    elif X <= 11/12*Max:
-        Farbe[2] = int(-Stg*X+Stg*(11/12)*Max)
+    elif X <= 6/6*Max:
+        Farbe[2] = int(-Stg*X+Stg*(6/6)*Max)
     else:
         Farbe[2]=0
 
