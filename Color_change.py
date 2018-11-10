@@ -68,16 +68,16 @@ if __name__ == '__main__':
     try:
 
         while True: X = int(round(float(input("Entfernung")),0))
-                    if X <= Max:
-                        Red()
-                        Green()
-                        Blue()
+            if X <= Max:
+                Red()
+                Green()
+                Blue()
 
-                        print(Farbe)
+                print(Farbe)
 
-                    else:
-                    print("zu weit weg")
-                    setColor(strip, Color(Farbe[0],Farbe[1],Farbe[2]))
+            else:
+                print("zu weit weg")
+            setColor(strip, Color(Farbe[0],Farbe[1],Farbe[2]))
 
 
 
