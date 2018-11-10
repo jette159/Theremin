@@ -117,7 +117,7 @@ if __name__ == '__main__':
         while True:
             X = int(round(float(distance()),0))-5        # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
             setColor(X)
-            'print(Farbe)
+            print(Farbe)
             showColor(strip, Color(Farbe[0],Farbe[1],Farbe[2]))
             time.sleep(0.1)
 
