@@ -49,13 +49,13 @@ def Blue():
     if X <= 4/12*Max:
         Farbe[2]= 0
     elif X <= 6/12*Max:
-        Farbe[0]= int(Stg*X-Stg*(1/3)*Max)
+        Farbe[2]= int(Stg*X-Stg*(1/3)*Max)
     elif  X <= 9/12*Max:
-        Farbe[0] = 255
+        Farbe[2] = 255
     elif X <= 11/12*Max:
-        Farbe[0] = int(-Stg*X+Stg*(11/12)*Max)
+        Farbe[2] = int(-Stg*X+Stg*(11/12)*Max)
     else:
-        Farbe[0]=0
+        Farbe[2]=0
 
 
 
