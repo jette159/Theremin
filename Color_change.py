@@ -23,7 +23,7 @@ def setColor(strip, color):
             strip.show()
 
 
-16def Red():
+def Red():
     if X <= 1/6*Max:
         Farbe[0]=255
     elif X <= 2/6*Max:
