@@ -67,7 +67,8 @@ if __name__ == '__main__':
 
     try:
 
-        while True: X = int(round(float(input("Entfernung")),0))
+        while True:
+            X = int(round(float(input("Entfernung")),0))
             if X <= Max:
                 Red()
                 Green()
