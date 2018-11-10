@@ -50,7 +50,7 @@ def distance():
 
     distanz = (TimeElapsed * 34300) / 2                 # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
 
-    return distanz                                      #Distanz ausgeben
+    return distance                                      #Distanz ausgeben
 
 
 def showColor(strip, color):                     #LED Streifen an machen in color
@@ -123,6 +123,5 @@ if __name__ == '__main__':
             time.sleep(0.1)
 
     except KeyboardInterrupt:
-        if args.clear:
-            showColor(strip, Color(0,0,0))
+        showColor(strip, Color(0,0,0))
 
