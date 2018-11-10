@@ -107,7 +107,7 @@ if __name__ == '__main__':
     try:
 
         while True:
-            X = int(round(float(distanz()),0))
+            X = int(round(float(distanz()),0))-5
             # X = int(round(float(input("Entfernung")),0))
             if X == 0:
                 Farbe = [0,0,0]
