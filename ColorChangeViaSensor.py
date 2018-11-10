@@ -116,8 +116,6 @@ if __name__ == '__main__':
             else:
                 print("zu weit weg")
 
-            print(distanz())
-            print(Farbe)
             showColor(strip, Color(Farbe[0],Farbe[1],Farbe[2]))
             time.sleep(0.1)
 
