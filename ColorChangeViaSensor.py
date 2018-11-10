@@ -31,7 +31,7 @@ def setup ():
 
 
 
-def distance():
+def distanz():
     GPIO.output(GPIO_TRIGGER, True)                     # setze Trigger auf HIGH
 
     time.sleep(0.00001)                                 # setze Trigger nach 0.01ms aus LOW
@@ -50,7 +50,7 @@ def distance():
 
     distanz = (TimeElapsed * 34300) / 2                 # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
 
-    return distance                                      #Distanz ausgeben
+    return distanz                                      #Distanz ausgeben
 
 
 def showColor(strip, color):                     #LED Streifen an machen in color
@@ -115,9 +115,9 @@ if __name__ == '__main__':
     try:
 
         while True:
-            X = int(round(float(distance()),0))-5        # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
+            X = int(round(float(distanz()),0))-5        # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
             setColor(X)
-            print (distance)
+            print (distanz())
             print(Farbe)
             showColor(strip, Color(Farbe[0],Farbe[1],Farbe[2]))
             time.sleep(0.1)
