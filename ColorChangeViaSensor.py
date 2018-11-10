@@ -94,11 +94,9 @@ def Blue():                                 #Festlegung des Blauwerts aus Entfer
         Farbe[2]=0
 
 
-
-
-setup()
 if __name__ == '__main__':
 
+    setup()
     strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)        #Strip inizieren
     strip.begin()
     print ('Press Ctrl-C to quit.')
