@@ -93,10 +93,10 @@ def Blue():                                 #Festlegung des Blauwerts aus Entfer
     else:
         Farbe[2]=0
 
-def setColor(Distanz):
-    if Distanz <= 0:
+def setColor(X):
+    if X <= 0:
         Farbe = [0,0,0]
-    elif Distanz <= Max:
+    elif X <= Max:
         Red()
         Green()
         Blue()
