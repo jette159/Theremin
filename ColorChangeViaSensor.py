@@ -48,7 +48,7 @@ def distanz():
 
     TimeElapsed = StopZeit - StartZeit                  # Zeitdifferenz zwischen Start und Ankunft
 
-    distanz = (TimeElapsed * 34300) / 2                 # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
+    distanz = int(round(float((TimeElapsed * 34300) / 2),0))  # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
 
     return distanz                                      #Distanz ausgeben
 
@@ -93,15 +93,6 @@ def Blue():                                 #Festlegung des Blauwerts aus Entfer
     else:
         Farbe[2]=0
 
-def setColor(X):
-    if X <= 0:
-        Farbe = [0,0,0]
-    elif X <= Max:
-        Red()
-        Green()
-        Blue()
-    else:
-        print("zu weit weg")
 
 
 
@@ -115,9 +106,17 @@ if __name__ == '__main__':
     try:
 
         while True:
-            X = int(round(float(distanz()),0))-5        # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
-            setColor(X)
-            print (distanz())
+            X = distanz()-5       # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
+            if X <= 0:
+                Farbe = [0,0,0]
+            elif X <= Max:
+                Red()
+                Green()
+                Blue()
+            else:
+                print("zu weit weg")
+
+            print(distanz())
             print(Farbe)
             showColor(strip, Color(Farbe[0],Farbe[1],Farbe[2]))
             time.sleep(0.1)
