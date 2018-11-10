@@ -15,7 +15,7 @@ LED_CHANNEL    = 0       # set to '1' for GPIOs 13, 19, 41, 45 or 53
 Max = 60            #Maximale Entfernung
 X=0                 #Gemessene Entfernung
 Stg = (255*6)/Max   #Steigung/Konstante
-Farbe = [0,0,0]     #Liste mit RGB Komponenten
+0     #Liste mit RGB Komponenten
 
 def setColor(strip, color):
         for i in range(strip.numPixels()):
@@ -69,7 +69,9 @@ if __name__ == '__main__':
 
         while True:
             X = int(round(float(input("Entfernung")),0))
-            if X <= Max:
+            if X= 0:
+                Farbe = [0,0,0]
+            elif X <= Max:
                 Red()
                 Green()
                 Blue()
