@@ -31,7 +31,7 @@ def Red():
     elif  X <= 4/6*Max:
         Farbe[0] = 0
     elif X <= 5/6*Max:
-        Farbe[0] = int(abs(Stg*X-Stg*(5/6)*Max))
+        Farbe[0] = int(Stg*X-Stg*(4/6)*Max)
     else:
         Farbe[0]=255
 
@@ -49,7 +49,7 @@ def Blue():
     if X <= 2/6*Max:
         Farbe[2]= 0
     elif X <= 3/6*Max:
-        Farbe[2]= int(abs(Stg*X-Stg*(3/6)*Max))
+        Farbe[2]= int(Stg*X-Stg*(2/6)*Max)
     elif  X <= 5/6*Max:
         Farbe[2] = 255
     elif X <= 6/6*Max:
