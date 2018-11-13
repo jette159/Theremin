@@ -55,7 +55,10 @@ setup()
 if __name__ == '__main__':
     try:
         while True:
-            Zentralwert()
+            for i in (0,8):
+                Median[i] = distanz()
+            print (Median)
+            Entfernung = statistics.median(Median)
             print (Entfernung)
             time.sleep(0.5)
 
