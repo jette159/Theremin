@@ -18,15 +18,3 @@ stream.stop_stream()
 stream.close()
 p.terminate()
 
-'''
-Install it using pip: 
-pip install pyaudio 
-Notes:
-pip will download the PyAudio source and build it for your system. Be sure to install the portaudio library development package (
-portaudio19-dev) and the python development package (python-all-dev) beforehand.
-
-andere Variante 
-sudo apt-get install python-pyaudio python3-pyaudio
-
-https://forum-raspberrypi.de/forum/thread/32391-sinuswelle-ueber-die-klinke-ausgeben/?pageNo=1#codeLine_3_b3b499
-'''
