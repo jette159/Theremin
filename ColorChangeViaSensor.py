@@ -23,6 +23,7 @@ Max = 60            #Maximale Entfernung
 X=0                 #Gemessene Entfernung
 Stg = (255*6)/Max   #Steigung/Konstante
 Farbe = [0,0,0]     #Liste mit RGB Komponenten
+MDistanz = 0
 
 def setup ():
    GPIO.setmode(GPIO.BOARD)                                #GPIO Modus (BOARD / BCM)
@@ -52,6 +53,13 @@ def distanz():
 
     return distanz                                      #Distanz ausgeben
 
+def MDistanz():
+        for i in range(0,9):
+            Median[i] = distanz()
+            time.sleep(0.001)
+        Median = sorted(Median)
+        MDistanz= round((Median[4]),2)
+        return MDistanz
 
 def showColor(strip, color):                     #LED Streifen an machen in color
         for i in range(strip.numPixels()):
@@ -93,7 +101,6 @@ def Blue():                                 #Festlegung des Blauwerts aus Entfer
     else:
         Farbe[2]=0
 
-
 if __name__ == '__main__':
 
     setup()
@@ -104,7 +111,7 @@ if __name__ == '__main__':
     try:
 
         while True:                                             # Mainloop
-            X = distanz()-5                                     # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
+            X = MDistanz()-5                                     # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
             if X <= 0:                                          #näher als 5 dran Licht = Rot
                 Farbe = [255,0,0]
             elif X <= Max:                                      #Farbe aus Funktionen
