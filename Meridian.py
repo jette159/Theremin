@@ -44,22 +44,15 @@ def distanz():
 
     return distanz
 
-def Zentralwert():
-    for i in (0,8):
-        Median[i] = distanz()
-    print (Median)
-    Entfernung = statistics.median(Median)
-
-
 setup()
 if __name__ == '__main__':
     try:
         while True:
             for i in (0,8):
                 Median[i] = distanz()
+                time.sleep(0.001)
             print (Median)
-            Entfernung = statistics.median(Median)
-            print (Entfernung)
+            print (Median[4])
             time.sleep(0.5)
 
         # Beim Abbruch durch STRG+C resetten
