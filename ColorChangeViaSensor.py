@@ -23,7 +23,9 @@ Max = 60            #Maximale Entfernung
 X=0                 #Gemessene Entfernung
 Stg = (255*6)/Max   #Steigung/Konstante
 Farbe = [0,0,0]     #Liste mit RGB Komponenten
+
 MDistanz = 0
+Median = [0,0,0,0,0,0,0,0,0] #Liste für Median
 
 def setup ():
    GPIO.setmode(GPIO.BOARD)                                #GPIO Modus (BOARD / BCM)
