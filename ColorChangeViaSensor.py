@@ -56,6 +56,7 @@ def distanz():
     return distanz                                      #Distanz ausgeben
 
 def MDistanz():
+        global Median
         for i in range(0,9):
             Median[i] = distanz()
             time.sleep(0.001)
