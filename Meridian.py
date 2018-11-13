@@ -51,10 +51,8 @@ if __name__ == '__main__':
             for i in range(0,9):
                 Median[i] = distanz()
                 time.sleep(0.001)
-            print (Median)
             Median = sorted(Median)
-            #print(Median)
-            print (float(Median[4]),2)
+            print (round((Median[4]),2))
             time.sleep(0.5)
 
         # Beim Abbruch durch STRG+C resetten
