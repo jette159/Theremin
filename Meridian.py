@@ -48,7 +48,7 @@ setup()
 if __name__ == '__main__':
     try:
         while True:
-            for i in range(0,8):
+            for i in range(1,9):
                 Median[i] =i #distanz()
                 time.sleep(0.001)
             print (Median)
