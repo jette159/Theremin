@@ -45,7 +45,7 @@ def distanz():
     return distanz
 
 def Zentralwert():
-        for i in (0,8):
+    for i in (0,8):
         Median[i] = distanz()
     print (Median)
     Entfernung = statistics.median(Median)
