@@ -49,11 +49,9 @@ if __name__ == '__main__':
     try:
         while True:
             for i in range(0,8):
-                global Meridian
                 Median[i] =i #distanz()
-                print("3")
                 time.sleep(0.001)
-            #print (Median)
+            print (Median)
             print (Median[4])
             time.sleep(0.5)
 
