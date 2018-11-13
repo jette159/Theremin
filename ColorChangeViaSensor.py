@@ -129,4 +129,5 @@ if __name__ == '__main__':
 
     except KeyboardInterrupt:
         showColor(strip, Color(0,0,0))                          #Licht aus
+        GPIO.cleanup()
 
