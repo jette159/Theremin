@@ -54,7 +54,7 @@ if __name__ == '__main__':
             print (Median)
             Median = sorted(Median)
             #print(Median)
-            print (float(Median[4],2))
+            print (float(Median[4]),2)
             time.sleep(0.5)
 
         # Beim Abbruch durch STRG+C resetten
