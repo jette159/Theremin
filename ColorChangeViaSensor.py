@@ -105,12 +105,13 @@ def Blue():                                 #Festlegung des Blauwerts aus Entfer
         Farbe[2]=0
 
 def set_Color (X):
+    global Farbe
     if X <= 0:                                          #näher als 5 dran Licht = Rot
         Farbe = [255,0,0]
     elif X <= Max:                                      #Farbe aus Funktionen
-         Red()
-         Green()
-         Blue()
+        Red()
+        Green()
+        Blue()
     else:                                               #Farbe lassen und Meldung raus geben
         print("zu weit weg")
     showColor(strip, Color(Farbe[0],Farbe[1],Farbe[2]))
