@@ -104,30 +104,27 @@ def Blue():                                 #Festlegung des Blauwerts aus Entfer
     else:
         Farbe[2]=0
 
-if __name__ == '__main__':
 
-    setup()
-    strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)        #Strip inizieren
-    strip.begin()
-    print ('Press Ctrl-C to quit.')
+setup()
+strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)        #Strip inizieren
+strip.begin()
+print ('Press Ctrl-C to quit.')
 
-    try:
+try:
+    while True:                                             # Mainloop
+        X = MDistanz()-5                                     # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
+        if X <= 0:                                          #näher als 5 dran Licht = Rot
+            Farbe = [255,0,0]
+        elif X <= Max:                                      #Farbe aus Funktionen
+            Red()
+            Green()
+            Blue()
+        else:                                               #Farbe lassen und Meldung raus geben
+            print("zu weit weg")
+        showColor(strip, Color(Farbe[0],Farbe[1],Farbe[2])) #Farbe zeigen/aktualisieren
+        time.sleep(0.1)                                     #warten und von vorne
 
-        while True:                                             # Mainloop
-            X = MDistanz()-5                                     # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
-            if X <= 0:                                          #näher als 5 dran Licht = Rot
-                Farbe = [255,0,0]
-            elif X <= Max:                                      #Farbe aus Funktionen
-                Red()
-                Green()
-                Blue()
-            else:                                               #Farbe lassen und Meldung raus geben
-                print("zu weit weg")
-
-            showColor(strip, Color(Farbe[0],Farbe[1],Farbe[2])) #Farbe zeigen/aktualisieren
-            time.sleep(0.1)                                     #warten und von vorne
-
-    except KeyboardInterrupt:
-        showColor(strip, Color(0,0,0))                          #Licht aus
-        GPIO.cleanup()
+except KeyboardInterrupt:
+    showColor(strip, Color(0,0,0))                          #Licht aus
+    GPIO.cleanup()
 
