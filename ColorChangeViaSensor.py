@@ -126,17 +126,6 @@ try:
     while True:                                             # Mainloop
         X = MDistanz()-5 # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
         set_Color(X)
-        '''if X <= 0:                                          #näher als 5 dran Licht = Rot
-            Farbe = [255,0,0]
-        elif X <= Max:                                      #Farbe aus Funktionen
-            Red()
-            Green()
-            Blue()
-        else:                                               #Farbe lassen und Meldung raus geben
-            print("zu weit weg")
-        showColor(strip, Color(Farbe[0],Farbe[1],Farbe[2])) #Farbe zeigen/aktualisieren
-        time.sleep(0.1) 
-                                            '''#warten und von vorne
 
 except KeyboardInterrupt:
     showColor(strip, Color(0,0,0))                          #Licht aus
