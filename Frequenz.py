@@ -51,13 +51,14 @@ def Frequenz(Distanz):
     #n = int(-float((HighTon-LowTon)/MAX)*Distanz+HighTon) #höchster Ton unten
     n = int(float((HighTon-LowTon)/MAX)*Distanz+LowTon) #tiefster Ton unten
     Frequenz = round(2**((n-49)/12)*440,3)
+    return Frequenz
 
 setup()
 try:
     while True:                                             # Mainloop
         X = MDistanz()-5 # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
         Frequenz(X)
-        print(Frequenz,'Hz')
+        print(Frequenz(),'Hz')
 
 except KeyboardInterrupt:
     GPIO.cleanup()
