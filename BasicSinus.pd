@@ -1,1 +1,7 @@
-#N canvas 992 445 697 467 10; #X obj 103 136 dac~; #X obj 144 64 osc~ 200; #X connect 1 0 0 1;
+#N canvas 614 0 697 392 10;
+#X obj 108 144 dac~;
+#X obj 144 64 osc~ 460;
+#X obj 201 15 netreceive 3000;
+#X connect 1 0 0 1;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
