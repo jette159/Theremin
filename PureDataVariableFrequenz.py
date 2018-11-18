@@ -5,7 +5,7 @@ import socket
 MAX = 60 #maximale Entfernung
 HighTon = 52 #c''
 LowTon = 28 #c
-Frequenz=440
+Ton=440
 
 #UltraschallSensor
 GPIO_TRIGGER = 11
@@ -56,21 +56,21 @@ def Frequenz(Distanz):
     return Frequenz
 
 def send_Frequenz_to_pure_Data():
-    global Frequenz
+    global Ton
     s = socket.socket()
     host = socket.gethostname()
     port = 3000
     s.connect((host, port))
-    message = str(Frequenz) + " ;" #Need to add " ;" at the end so pd knows when you're finished writing.
+    message = str(Ton) + " ;" #Need to add " ;" at the end so pd knows when you're finished writing.
     s.send(message.encode('utf-8'))
 
 setup()
 try:
     while True:                                             # Mainloop
         X = MDistanz() # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
-        Frequenz=Frequenz(X)
+        Ton=Frequenz(X)
         send_Frequenz_to_pure_Data()
-        print(Frequenz)
+        print(Ton)
 
 except KeyboardInterrupt:
     GPIO.cleanup()
