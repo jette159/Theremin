@@ -1,0 +1,17 @@
+frequenz deckeln
+variablen namen aufräumen/angleichen
+prüfen ob unsere struktur in ordnung is (nicht zu verschachtelt)
+was machen wir als nächstes Sound´verbesserung oder volumenänderung
+
+
+Designidee
+für hübsch
+Display mit Tonanzeige
+Tower LEDstreifen der noten ort quasi anzeigt
+
+Hardware kram raus finden
+wie funktionieren die displays da
+externe stromersorgung wegen LEDs?
+wie baut man ein poti an
+
+
