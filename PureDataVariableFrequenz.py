@@ -61,7 +61,7 @@ def send_Frequenz_to_pure_Data():
     host = socket.gethostname()
     port = 3000
     s.connect((host, port))
-    message = Frequenz + " ;" #Need to add " ;" at the end so pd knows when you're finished writing.
+    message = str(Frequenz) + " ;" #Need to add " ;" at the end so pd knows when you're finished writing.
     s.send(message.encode('utf-8'))
 
 setup()
