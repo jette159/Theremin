@@ -1,7 +1,13 @@
 #N canvas 614 0 697 392 10;
-#X obj 108 144 dac~;
-#X obj 144 64 osc~ 460;
+#X obj 205 131 dac~;
+#X obj 204 71 osc~ 460;
 #X obj 201 15 netreceive 3000;
+#X msg 85 103 \; pd dsp 1;
+#X obj 85 32 loadbang;
+#X obj 85 72 del 100;
+#X text 1 71 important ->;
 #X connect 1 0 0 1;
 #X connect 1 0 0 0;
 #X connect 2 0 1 0;
+#X connect 4 0 5 0;
+#X connect 5 0 3 0;
