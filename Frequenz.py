@@ -56,7 +56,7 @@ def Frequenz(Distanz):
 setup()
 try:
     while True:                                             # Mainloop
-        X = MDistanz()-5 # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
+        X = MDistanz() # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
         print(Frequenz(X),'Hz')
 
 except KeyboardInterrupt:
