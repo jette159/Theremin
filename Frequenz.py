@@ -5,6 +5,10 @@ MAX = 60 #maximale Entfernung
 HighTon = 52 #c''
 LowTon = 28 #c
 
+#UltraschallSensor
+GPIO_TRIGGER = 11
+GPIO_ECHO = 13
+
 MDistanz = 0
 Median = [0,0,0,0,0,0,0,0,0] #Liste für Median
 
