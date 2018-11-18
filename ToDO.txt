@@ -13,5 +13,5 @@ Hardware kram raus finden
 wie funktionieren die displays da
 externe stromersorgung wegen LEDs?
 wie baut man ein poti an
-
+...
 
