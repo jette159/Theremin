@@ -12,7 +12,7 @@ GPIO_TRIGGER = 11
 GPIO_ECHO = 13
 
 MDistanz = 0
-Median = [0,0,0,0,0,0,0,0,0] #Liste für Median.
+Median = [0,0,0,0,0,0,0,0,0] #Liste für Median
 
 def setup ():
    GPIO.setmode(GPIO.BOARD)                                #GPIO Modus (BOARD / BCM)

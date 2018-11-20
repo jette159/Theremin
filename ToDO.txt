@@ -7,7 +7,7 @@ wie baut man ein poti an?                                               -->
 
 
 
-Fritzingplan                                                            -->Done
+Fritzingplan                                                            --> Done
 VolumenSensor integrieren                                               -->
 Case Planung                                                            -->
 
