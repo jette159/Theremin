@@ -18,4 +18,4 @@ prüfen ob unsere struktur in ordnung is (nicht zu verschachtelt)        --> Emm
 Designidee
 für hübsch
 Display mit Tonanzeige
-Tower LEDstreifen der noten ort quasi anzeigt
+Tower LEDstreifen der noten ort quasi anzeigt.
