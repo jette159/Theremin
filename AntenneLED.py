@@ -164,7 +164,7 @@ try:
         Frequenz(X)
         set_Color(X)
         #LEDAntenne()
-        LEDAntenne = round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0)
+        LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))
         showColor(strip2, Color(0,0,0))
         showColorAntenne(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
         print (Farbe)
