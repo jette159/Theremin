@@ -130,10 +130,10 @@ try:
         X= MDistanz()-5
         set_Color(X)
         showColor(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
-        print(Tonindex, Ton)
+
 
 except KeyboardInterrupt:
-    showColor(strip, Color(0,0,0))                          #Licht aus
+    showColor(strip2, Color(0,0,0))                          #Licht aus
     GPIO.cleanup()
 
 
