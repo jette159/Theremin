@@ -1,17 +1,21 @@
+was machen wir als nächstes Sound´verbesserung oder volumenänderung
+
+Hardware kram raus finden:
+externe stromersorgung wegen LEDs?                                      --> ja netzteil 5A 5V
+wie funktionieren die displays da?                                      -->
+wie baut man ein poti an?                                               -->
+
+
+
+Fritzingplan                                                            -->
+VolumenSensor integrieren                                               -->
+Case Planung                                                            -->
+
 frequenz deckeln                                                        --> Done
 variablen namen aufräumen/angleichen                                    --> Done
 prüfen ob unsere struktur in ordnung is (nicht zu verschachtelt)        --> Emma sagt Done
-was machen wir als nächstes Sound´verbesserung oder volumenänderung
-
 
 Designidee
 für hübsch
 Display mit Tonanzeige
 Tower LEDstreifen der noten ort quasi anzeigt
-
-Hardware kram raus finden
-wie funktionieren die displays da
-externe stromersorgung wegen LEDs?
-wie baut man ein poti an
-...
-
