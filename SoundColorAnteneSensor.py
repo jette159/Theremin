@@ -195,6 +195,7 @@ try:
 
 except KeyboardInterrupt:
     showColor(strip, Color(0,0,0))                          #Licht aus
+    showColor(strip2, Color(0,0,0))
     GPIO.cleanup()
 
 
