@@ -8,7 +8,7 @@ wie baut man ein poti an?                                               -->
 
 
 Fritzingplan                                                            --> Done
-VolumenSensor integrieren                                               -->
+VolumenSensor integrieren                                               --> Angefangen. Noch nciht getestet
 Case Planung                                                            -->
 
 frequenz deckeln                                                        --> Done
