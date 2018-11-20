@@ -156,6 +156,9 @@ try:
         X= MDistanz()-5
         set_Color(X)
         showColor(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
+        print (Farbe)
+        print ("Tonindex", Tonindex)
+        print ("LEDAntenne", LEDAntenne())
 
 
 except KeyboardInterrupt:
