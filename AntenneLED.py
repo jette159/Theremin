@@ -154,6 +154,7 @@ print ('Press Ctrl-C to quit.')
 try:
     while True:                                             # Mainloop
         X= MDistanz()-5
+        Frequenz(X)
         set_Color(X)
         showColor(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
         print (Farbe)
