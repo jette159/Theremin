@@ -167,7 +167,7 @@ try:
         showColorAntenne(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
         print (Farbe)
         print ("Tonindex", Tonindex)
-        print ("LEDAntenne", LEDAntenne())
+        print ("LEDAntenne", LEDAntenne)
 
 
 except KeyboardInterrupt:
