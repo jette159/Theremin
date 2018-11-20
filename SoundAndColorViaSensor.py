@@ -78,8 +78,13 @@ def Frequenz(Distanz):
     global Tonindex
     #n = int(-float((HighTon-LowTon)/MAX)*Distanz+HighTon) #höchster Ton unten
     n = int(float((HighTon-LowTon)/MAX)*Distanz+LowTon) #tiefster Ton unten
-    Tonindex = n
-    Frequenz = round(2**((n-49)/12)*440,3)
+    if n < LowTon:
+        Tonindex = LowTon
+    elif n <= HighTon:
+        Tonindex = n
+    else:
+        Tonindex = HighTon
+    Frequenz = round(2**((Tonindex-49)/12)*440,3)
     Ton = Frequenz
     return Frequenz
 
