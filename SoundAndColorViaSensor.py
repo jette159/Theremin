@@ -155,7 +155,7 @@ try:
         Frequenz(MDistanz()-5 )                             # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
         send_Frequenz_to_pure_Data()
         set_Color(X)
-        print(n, Ton)
+        print(Tonindex, Ton)
 
 except KeyboardInterrupt:
     showColor(strip, Color(0,0,0))                          #Licht aus
