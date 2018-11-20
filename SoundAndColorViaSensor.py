@@ -3,17 +3,9 @@ import RPi.GPIO as GPIO
 import socket
 from rpi_ws281x import *
 
-MAX = 60 #maximale Entfernung
-HighTon = 52 #c''
-LowTon = 28 #c
-Ton=440
-
 #UltraschallSensor
 GPIO_TRIGGER = 11
 GPIO_ECHO = 13
-
-MDistanz = 0
-Median = [0,0,0,0,0,0,0,0,0] #Liste für Median
 
 #LED strip configuration:
 LED_COUNT      = 9              # Number of LED pixels.
@@ -24,11 +16,21 @@ LED_BRIGHTNESS = 40             # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False          # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0              # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
+#Distanzwert mitteln
+Distanz = 0
+MDistanz = 0
+Median = [0,0,0,0,0,0,0,0,0] #Liste für Median
+
 #Farbberechnung aus Distanz
-Max = 60            #Maximale Entfernung
+MAX = 60            #MAXimale Entfernung
 X=0                 #Gemessene Entfernung
-Stg = (255*6)/Max   #Steigung/Konstante
+Stg = (255*6)/MAX   #Steigung/Konstante
 Farbe = [0,0,0]     #Liste mit RGB Komponenten
+
+#Tonfrequenzberechnung
+HighTon = 52 #c''
+LowTon = 28 #c
+Ton=440
 
 def setup ():
    GPIO.setmode(GPIO.BOARD)                                #GPIO Modus (BOARD / BCM)
@@ -36,6 +38,7 @@ def setup ():
    GPIO.setup(GPIO_ECHO, GPIO.IN)
 
 def distanz():
+    global Distanz
     GPIO.output(GPIO_TRIGGER, True)                     # setze Trigger auf HIGH
 
     time.sleep(0.00001)                                 # setze Trigger nach 0.01ms aus LOW
@@ -52,23 +55,29 @@ def distanz():
 
     TimeElapsed = StopZeit - StartZeit                  # Zeitdifferenz zwischen Start und Ankunft
 
-    distanz = int(round(float((TimeElapsed * 34300) / 2),0))  # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
+    Distanz = round(float((TimeElapsed * 34300) / 2),0)  # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
 
-    return distanz                                      #Distanz ausgeben
+    return Distanz
 
 def MDistanz():
         global Median
+        global Distanz
+
         for i in range(0,9):
-            Median[i] = distanz()
+            distanz()
+            Median[i] = Distanz
             time.sleep(0.001)
         Median = sorted(Median)
         MDistanz= round((Median[4]),2)
+
         return MDistanz
 
 def Frequenz(Distanz):
+    global Ton
     #n = int(-float((HighTon-LowTon)/MAX)*Distanz+HighTon) #höchster Ton unten
     n = int(float((HighTon-LowTon)/MAX)*Distanz+LowTon) #tiefster Ton unten
     Frequenz = round(2**((n-49)/12)*440,3)
+    Ton = Frequenz
     return Frequenz
 
 def send_Frequenz_to_pure_Data():
@@ -86,36 +95,36 @@ def showColor(strip, color):                     #LED Streifen an machen in colo
         strip.show()
 
 def Red():                                  #Festlegung des Rotwerts aus Entfernung
-    if X <= 1/6*Max:
+    if X <= 1/6*MAX:
         Farbe[0]=255
-    elif X <= 2/6*Max:
-        Farbe[0]= int(-Stg*X+Stg*(2/6)*Max)
-    elif  X <= 4/6*Max:
+    elif X <= 2/6*MAX:
+        Farbe[0]= int(-Stg*X+Stg*(2/6)*MAX)
+    elif  X <= 4/6*MAX:
         Farbe[0] = 0
-    elif X <= 5/6*Max:
-        Farbe[0] = int(Stg*X-Stg*(4/6)*Max)
+    elif X <= 5/6*MAX:
+        Farbe[0] = int(Stg*X-Stg*(4/6)*MAX)
     else:
         Farbe[0]=255
 
 def Green():                                #Festlegung des Grünwerts aus Entfernung
-    if X <= 1/6*Max:
+    if X <= 1/6*MAX:
         Farbe[1]=int(Stg*X)
-    elif X <= 3/6*Max:
+    elif X <= 3/6*MAX:
         Farbe[1]= 255
-    elif  X <= 4/6*Max:
-        Farbe[1] = int(-Stg*X+Stg*(4/6)*Max)
+    elif  X <= 4/6*MAX:
+        Farbe[1] = int(-Stg*X+Stg*(4/6)*MAX)
     else:
         Farbe[1]=0
 
 def Blue():                                 #Festlegung des Blauwerts aus Entfernung
-    if X <= 2/6*Max:
+    if X <= 2/6*MAX:
         Farbe[2]= 0
-    elif X <= 3/6*Max:
-        Farbe[2]= int(Stg*X-Stg*(2/6)*Max)
-    elif  X <= 5/6*Max:
+    elif X <= 3/6*MAX:
+        Farbe[2]= int(Stg*X-Stg*(2/6)*MAX)
+    elif  X <= 5/6*MAX:
         Farbe[2] = 255
-    elif X <= 6/6*Max:
-        Farbe[2] = int(-Stg*X+Stg*(6/6)*Max)
+    elif X <= 6/6*MAX:
+        Farbe[2] = int(-Stg*X+Stg*(6/6)*MAX)
     else:
         Farbe[2]=0
 
@@ -123,7 +132,7 @@ def set_Color (X):
     global Farbe
     if X <= 0:                                          #näher als 5 dran Licht = Rot
         Farbe = [255,0,0]
-    elif X <= Max:                                      #Farbe aus Funktionen
+    elif X <= MAX:                                      #Farbe aus Funktionen
         Red()
         Green()
         Blue()
@@ -140,8 +149,7 @@ print ('Press Ctrl-C to quit.')
 
 try:
     while True:                                             # Mainloop
-        X = MDistanz()-5 # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
-        Ton=Frequenz(X)
+        Frequenz(MDistanz()-5 )                             # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
         send_Frequenz_to_pure_Data()
         set_Color(X)
         print(Ton)
