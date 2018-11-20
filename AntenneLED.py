@@ -95,7 +95,7 @@ def LEDAntenne():                                           #Wie viele LEDs an d
 
 
 def showColor(strip2, color):                     #LED Streifen an machen in color
-    for i in range(LEDCount()):
+    for i in range(LEDAntenne()):
         strip2.setPixelColor(i, color)
         strip2.show()
 
