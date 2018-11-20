@@ -152,7 +152,8 @@ print ('Press Ctrl-C to quit.')
 
 try:
     while True:                                             # Mainloop
-        Frequenz(MDistanz()-5 )                             # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
+        X= MDistanz()-5
+        Frequenz(X)                             # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
         send_Frequenz_to_pure_Data()
         set_Color(X)
         print(Tonindex, Ton)
