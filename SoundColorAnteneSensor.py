@@ -7,7 +7,16 @@ from rpi_ws281x import *
 GPIO_TRIGGER = 11
 GPIO_ECHO = 13
 
-#LED strip configuration:
+#LED strip Case configuration:
+LED_COUNT      = 9              # Number of LED pixels.
+LED_PIN        = 18             # GPIO pin connected to the pixels (18 uses PWM!).
+LED_FREQ_HZ    = 800000         # LED signal frequency in hertz (usually 800khz)
+LED_DMA        = 10             # DMA channel to use for generating signal (try 10)         Was macht das?
+LED_BRIGHTNESS = 40             # Set to 0 for darkest and 255 for brightest
+LED_INVERT     = False          # True to invert the signal (when using NPN transistor level shift)
+LED_CHANNEL    = 0              # set to '1' for GPIOs 13, 19, 41, 45 or 53
+
+#LED strip Antenne configuration:
 LED_COUNT_2      = 9              # Number of LED pixels.
 LED_PIN_2        = 18             # GPIO pin connected to the pixels (18 uses PWM!).
 LED_FREQ_HZ_2    = 800000         # LED signal frequency in hertz (usually 800khz)
@@ -34,7 +43,6 @@ HighTon = 52 #c''
 LowTon = 28 #c
 Tonindex =28
 Ton=440
-
 
 def setup ():
    GPIO.setmode(GPIO.BOARD)                                #GPIO Modus (BOARD / BCM)
@@ -91,6 +99,15 @@ def Frequenz(Distanz):
     Ton = Frequenz
     return Frequenz
 
+def send_Frequenz_to_pure_Data():
+    global Ton
+    s = socket.socket()
+    host = socket.gethostname()
+    port = 3000
+    s.connect((host, port))
+    message = str(Ton) + " ;" #Need to add " ;" at the end so pd knows when you're finished writing.
+    s.send(message.encode('utf-8'))
+
 def showColor(strip, color):                     #LED Streifen an machen in color
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, color)
@@ -107,7 +124,6 @@ def LEDoff (strip, color):
         for i in range (X,LED_COUNT_2):
             strip.setPixelColor(i, color)
             strip.show()
-
 
 def Red():                                  #Festlegung des Rotwerts aus Entfernung
     if X <= 1/6*MAX:
@@ -153,30 +169,29 @@ def set_Color (X):
         Blue()
     else:                                               #Farbe lassen und Meldung raus geben
         print("zu weit weg")
+    showColor(strip, Color(Farbe[0],Farbe[1],Farbe[2]))
 
 
 setup()
 
-strip2 = Adafruit_NeoPixel(LED_COUNT_2, LED_PIN_2, LED_FREQ_HZ_2, LED_DMA_2, LED_INVERT_2, LED_BRIGHTNESS_2, LED_CHANNEL_2)        #Strip inizieren
-strip2.begin()
+strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS, LED_CHANNEL)        #Strip inizieren
+strip.begin()
 print ('Press Ctrl-C to quit.')
 
 try:
     while True:                                             # Mainloop
         X= MDistanz()-5
-        Frequenz(X)
+        Frequenz(X)                             # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
+        send_Frequenz_to_pure_Data()
         set_Color(X)
         LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))
         LEDoff(strip2, Color(0,0,0))
         showColorAntenne(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
         LEDAntenneAlt=LEDAntenne
-        print (Farbe)
-        print ("Tonindex", Tonindex)
-        print ("LEDAntenne", LEDAntenne)
-
+        print(Tonindex, Ton)
 
 except KeyboardInterrupt:
-    showColor(strip2, Color(0,0,0))                          #Licht aus
+    showColor(strip, Color(0,0,0))                          #Licht aus
     GPIO.cleanup()
 
 
