@@ -98,7 +98,7 @@ def showColor(strip, color):                     #LED Streifen an machen in colo
         strip.setPixelColor(i, color)
         strip.show()
 
-def showColorAntene(strip2, color):                     #LED Streifen an machen in color
+def showColorAntenne(strip2, color):                     #LED Streifen an machen in color
     for i in range(0,LEDAntenne()):
         strip2.setPixelColor(i, color)
         strip2.show()
