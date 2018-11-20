@@ -16,6 +16,7 @@ LED_BRIGHTNESS_2 = 40             # Set to 0 for darkest and 255 for brightest
 LED_INVERT_2     = False          # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL_2    = 0              # set to '1' for GPIOs 13, 19, 41, 45 or 53
 LEDAntenne       = 1
+LEDAntenneAlt    = 0
 
 #Distanzwert mitteln
 Distanz = 0
@@ -106,6 +107,14 @@ def showColorAntenne(strip2, color):                     #LED Streifen an machen
         strip2.setPixelColor(i, color)
         strip2.show()
 
+def LEDoff (strip, color):
+    if LEDAntenneAlt > LEDAntenne:
+        X= LEDAntenne
+        for i in range (X,LED_COUNT_2):
+            strip.setPixelColor(i, color)
+            strip.show()
+
+
 def Red():                                  #Festlegung des Rotwerts aus Entfernung
     if X <= 1/6*MAX:
         Farbe[0]=255
@@ -163,10 +172,10 @@ try:
         X= MDistanz()-5
         Frequenz(X)
         set_Color(X)
-        #LEDAntenne()
         LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))
-        showColor(strip2, Color(0,0,0))
+        LEDoff(strip2, Color(0,0,0))
         showColorAntenne(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
+        LEDAntenneAlt=LEDAntenne
         print (Farbe)
         print ("Tonindex", Tonindex)
         print ("LEDAntenne", LEDAntenne)
