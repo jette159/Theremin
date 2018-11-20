@@ -15,7 +15,7 @@ LED_DMA_2        = 10             # DMA channel to use for generating signal (tr
 LED_BRIGHTNESS_2 = 40             # Set to 0 for darkest and 255 for brightest
 LED_INVERT_2     = False          # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL_2    = 0              # set to '1' for GPIOs 13, 19, 41, 45 or 53
-LEDAntenne       = 0
+LEDAntenne       = 1
 
 #Distanzwert mitteln
 Distanz = 0
@@ -92,7 +92,7 @@ def Frequenz(Distanz):
 
 def LEDAntenne():                                           #Wie viele LEDs an der Antenne gehen an
     global LEDAntenne
-    LEDAntenne = round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0)
+    LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))
 
 
 def showColor(strip, color):                     #LED Streifen an machen in color
