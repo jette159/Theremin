@@ -156,6 +156,7 @@ try:
         X= MDistanz()-5
         Frequenz(X)
         set_Color(X)
+        showColor(strip2, Color(0,0,0))
         showColor(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
         print (Farbe)
         print ("Tonindex", Tonindex)
