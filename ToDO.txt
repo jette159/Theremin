@@ -1,6 +1,6 @@
-frequenz deckeln
-variablen namen aufräumen/angleichen
-prüfen ob unsere struktur in ordnung is (nicht zu verschachtelt)
+frequenz deckeln                                                        --> Done
+variablen namen aufräumen/angleichen                                    --> Done
+prüfen ob unsere struktur in ordnung is (nicht zu verschachtelt)        --> Emma sagt Done
 was machen wir als nächstes Sound´verbesserung oder volumenänderung
 
 
