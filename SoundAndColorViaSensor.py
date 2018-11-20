@@ -78,7 +78,7 @@ def Frequenz(Distanz):
     global Tonindex
     #n = int(-float((HighTon-LowTon)/MAX)*Distanz+HighTon) #höchster Ton unten
     n = int(float((HighTon-LowTon)/MAX)*Distanz+LowTon) #tiefster Ton unten
-    n = Tonindex
+    Tonindex = n
     Frequenz = round(2**((n-49)/12)*440,3)
     Ton = Frequenz
     return Frequenz
