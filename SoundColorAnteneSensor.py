@@ -4,8 +4,8 @@ import socket
 from rpi_ws281x import *
 
 #UltraschallSensor
-GPIO_TRIGGER = 11
-GPIO_ECHO = 13
+GPIO_TRIGGER = 29 #11
+GPIO_ECHO = 31 #13
 
 #LED strip Case configuration:
 LED_COUNT      = 9              # Number of LED pixels.
