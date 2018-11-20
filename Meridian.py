@@ -7,7 +7,7 @@ import statistics
 GPIO_TRIGGER = 11
 GPIO_ECHO = 13
 
-Median = [0,0,0,0,0,0,0,0,0] #Liste für Median
+Median = [0,0,0,0,0,0,0,0,0] #Liste für Median.
 Entfernung = 0
 
 def setup ():

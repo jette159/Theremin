@@ -3,9 +3,14 @@ import RPi.GPIO as GPIO
 import socket
 from rpi_ws281x import *
 
-#UltraschallSensor
-GPIO_TRIGGER = 29 #11
-GPIO_ECHO = 31 #13
+#UltraschallSensor Frequenz
+GPIO_TRIGGER_F = 11
+GPIO_ECHO_F = 13
+
+#UltraschallSensor Volume
+GPIO_TRIGGER_V = 29
+GPIO_ECHO_V = 31
+
 
 #LED strip Case configuration:
 LED_COUNT      = 9              # Number of LED pixels.
@@ -16,7 +21,6 @@ LED_BRIGHTNESS = 40             # Set to 0 for darkest and 255 for brightest
 LED_INVERT     = False          # True to invert the signal (when using NPN transistor level shift)
 LED_CHANNEL    = 0              # set to '1' for GPIOs 13, 19, 41, 45 or 53
 
-#
 #LED strip Antenne configuration:
 LED_COUNT_2      = 9              # Number of LED pixels.
 LED_PIN_2        = 21             # GPIO pin connected to the pixels (18 uses PWM!).
@@ -28,12 +32,17 @@ LED_CHANNEL_2    = 0              # set to '1' for GPIOs 13, 19, 41, 45 or 53
 LEDAntenne       = 1
 LEDAntenneAlt    = 0
 
-#Distanzwert mitteln
-Distanz = 0
-MDistanz = 0
-Median = [0,0,0,0,0,0,0,0,0] #Liste für Median
+#Distanzwert Frequenz
+Distanz_F = 0
+MDistanz_F = 0
+Median_F = [0,0,0,0,0,0,0,0,0] #Liste für Median
 
-#Farbberechnung aus Distanz
+#Distanzwert Volume
+Distanz_V = 0
+MDistanz_V = 0
+Median_V = [0,0,0,0,0,0,0,0,0] #Liste für Median
+
+#Farbberechnung aus Distanz für Frequenz
 MAX = 60            #MAXimale Entfernung
 X=0                 #Gemessene Entfernung
 Stg = (255*6)/MAX   #Steigung/Konstante
@@ -45,50 +54,56 @@ LowTon = 28 #c
 Tonindex =28
 Ton=440
 
+#Volumeberechnung
+MAX_V = 60
+Volume = 0
+
 def setup ():
    GPIO.setmode(GPIO.BOARD)                                #GPIO Modus (BOARD / BCM)
-   GPIO.setup(GPIO_TRIGGER, GPIO.OUT)                      #Richtung der GPIO-Pins festlegen (IN / OUT)
-   GPIO.setup(GPIO_ECHO, GPIO.IN)
+   GPIO.setup(GPIO_TRIGGER_F, GPIO.OUT)                      #Richtung der GPIO-Pins festlegen (IN / OUT)
+   GPIO.setup(GPIO_ECHO_F, GPIO.IN)
+   GPIO.setup(GPIO_TRIGGER_V, GPIO.OUT)                      #Richtung der GPIO-Pins festlegen (IN / OUT)
+   GPIO.setup(GPIO_ECHO_V, GPIO.IN)
 
-def distanz():
-    global Distanz
-    GPIO.output(GPIO_TRIGGER, True)                     # setze Trigger auf HIGH
+def get_distanz_F():
+    global Distanz_F
+    GPIO.output(GPIO_TRIGGER_F, True)                     # setze Trigger auf HIGH
 
     time.sleep(0.00001)                                 # setze Trigger nach 0.01ms aus LOW
-    GPIO.output(GPIO_TRIGGER, False)
+    GPIO.output(GPIO_TRIGGER_F, False)
 
     StartZeit = time.time()                             #Start- und Stopzeit definieren
     StopZeit = time.time()
 
-    while GPIO.input(GPIO_ECHO) == 0:                   # speichere Startzeit
+    while GPIO.input(GPIO_ECHO_F) == 0:                   # speichere Startzeit
         StartZeit = time.time()
 
-    while GPIO.input(GPIO_ECHO) == 1:                   # speichere Ankunftszeit
+    while GPIO.input(GPIO_ECHO_F) == 1:                   # speichere Ankunftszeit
         StopZeit = time.time()
 
     TimeElapsed = StopZeit - StartZeit                  # Zeitdifferenz zwischen Start und Ankunft
 
-    Distanz = round(float((TimeElapsed * 34300) / 2),0)  # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
+    Distanz_F = round(float((TimeElapsed * 34300) / 2),0)  # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
 
-    return Distanz
+    return Distanz_F
 
-def MDistanz():
-        global Median
-        global Distanz
+def MDistanz_F():
+    global Median_F
+    global Distanz_F
 
-        for i in range(0,9):
-            distanz()
-            Median[i] = Distanz
-            time.sleep(0.001)
-        Median = sorted(Median)
-        MDistanz= round((Median[4]),2)
+    for i in range(0,9):
+        get_distanz_F()
+        Median_F[i] = Distanz_F
+        time.sleep(0.001)
+    Median_F = sorted(Median_F)
+    MDistanz_F= round((Median_F[4]),2)
 
-        return MDistanz
+    return MDistanz_F
 
 def Frequenz(Distanz):
     global Ton
     global Tonindex
-    #n = int(-float((HighTon-LowTon)/MAX)*Distanz+HighTon) #höchster Ton unten
+    #n = int(-float((HighTon-LowTon)/MAX)*Distanz_F+HighTon) #höchster Ton unten
     n = int(float((HighTon-LowTon)/MAX)*Distanz+LowTon) #tiefster Ton unten
     if n < LowTon:
         Tonindex = LowTon
@@ -107,6 +122,55 @@ def send_Frequenz_to_pure_Data():
     port = 3000
     s.connect((host, port))
     message = str(Ton) + " ;" #Need to add " ;" at the end so pd knows when you're finished writing.
+    s.send(message.encode('utf-8'))
+
+def get_distanz_V():
+    global Distanz_V
+    GPIO.output(GPIO_TRIGGER_F, True)                     # setze Trigger auf HIGH
+
+    time.sleep(0.00001)                                 # setze Trigger nach 0.01ms aus LOW
+    GPIO.output(GPIO_TRIGGER_F, False)
+
+    StartZeit = time.time()                             #Start- und Stopzeit definieren
+    StopZeit = time.time()
+
+    while GPIO.input(GPIO_ECHO_F) == 0:                   # speichere Startzeit
+        StartZeit = time.time()
+
+    while GPIO.input(GPIO_ECHO_F) == 1:                   # speichere Ankunftszeit
+        StopZeit = time.time()
+
+    TimeElapsed = StopZeit - StartZeit                  # Zeitdifferenz zwischen Start und Ankunft
+
+    Distanz_V = round(float((TimeElapsed * 34300) / 2),0)  # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
+
+    return Distanz_V
+
+def MDistanz_V():
+    global Median_V
+    global Distanz_V
+    for i in range(0,9):
+        get_distanz_V()
+        Median_V[i] = Distanz_V
+        time.sleep(0.001)
+    Median_V = sorted(Median_V)
+    MDistanz_V= round((Median_V[4]),2)
+
+    return MDistanz_V
+
+def Volume(Distanz):
+    global Volume
+    Volume = Distanz/MAX_V #100% = 1
+
+    return Volume
+
+def send_Volume_to_pure_Data():
+    global Volume
+    s = socket.socket()
+    host = socket.gethostname()
+    port = 2000                                                         #oder welchen Port wir nehmen wollen
+    s.connect((host, port))
+    message = str(Volume) + " ;"                                        #Need to add " ;" at the end so pd knows when you're finished writing.
     s.send(message.encode('utf-8'))
 
 def showColor(strip, color):                     #LED Streifen an machen in color
@@ -182,10 +246,13 @@ strip2.begin()
 print ('Press Ctrl-C to quit.')
 
 try:
-    while True:                                             # Mainloop
-        X= MDistanz()-5
-        Frequenz(X)                             # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
+    while True:                                                                            # Mainloop
+        X= MDistanz_F()-5
+        Frequenz(X)                                                                     # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
         send_Frequenz_to_pure_Data()
+        Y= MDistanz_V()-5
+        Volume(Y)
+        send_Volume_to_pure_Data()
         set_Color(X)
         LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))
         LEDoff(strip2, Color(0,0,0))
@@ -193,8 +260,8 @@ try:
         LEDAntenneAlt=LEDAntenne
         print(Tonindex, Ton)
 
-except KeyboardInterrupt:
-    showColor(strip, Color(0,0,0))                          #Licht aus
+except KeyboardInterrupt:                                                                    #AUS!
+    showColor(strip, Color(0,0,0))                                                           #Licht aus
     showColor(strip2, Color(0,0,0))
     GPIO.cleanup()
 

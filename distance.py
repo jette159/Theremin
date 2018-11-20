@@ -7,7 +7,7 @@ GPIO_TRIGGER = 29
 GPIO_ECHO = 31
  
 def setup ():
-    #GPIO Modus (BOARD / BCM)
+    #GPIO Modus (BOARD / BCM).
     GPIO.setmode(GPIO.BOARD)
     #Richtung der GPIO-Pins festlegen (IN / OUT)
     GPIO.setup(GPIO_TRIGGER, GPIO.OUT)

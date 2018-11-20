@@ -3,7 +3,7 @@ import RPi.GPIO as GPIO
 import socket
 from rpi_ws281x import *
 
-#UltraschallSensor
+#UltraschallSensor.
 GPIO_TRIGGER = 11
 GPIO_ECHO = 13
 
