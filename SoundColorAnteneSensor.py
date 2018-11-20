@@ -19,7 +19,7 @@ LED_CHANNEL    = 0              # set to '1' for GPIOs 13, 19, 41, 45 or 53
 #
 #LED strip Antenne configuration:
 LED_COUNT_2      = 9              # Number of LED pixels.
-LED_PIN_2        = 23             # GPIO pin connected to the pixels (18 uses PWM!).
+LED_PIN_2        = 21             # GPIO pin connected to the pixels (18 uses PWM!).
 LED_FREQ_HZ_2    = 800000         # LED signal frequency in hertz (usually 800khz)
 LED_DMA_2        = 10             # DMA channel to use for generating signal (try 10)         Was macht das?
 LED_BRIGHTNESS_2 = 40             # Set to 0 for darkest and 255 for brightest
