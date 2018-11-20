@@ -93,8 +93,12 @@ def LEDAntenne():                                           #Wie viele LEDs an d
     LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))
     return LEDAntenne
 
+def showColor(strip, color):                     #LED Streifen an machen in color
+    for i in range(strip.numPixels()):
+        strip.setPixelColor(i, color)
+        strip.show()
 
-def showColor(strip2, color):                     #LED Streifen an machen in color
+def showColorAntene(strip2, color):                     #LED Streifen an machen in color
     for i in range(0,LEDAntenne()):
         strip2.setPixelColor(i, color)
         strip2.show()
@@ -157,7 +161,7 @@ try:
         Frequenz(X)
         set_Color(X)
         showColor(strip2, Color(0,0,0))
-        showColor(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
+        showColorAntenne(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
         print (Farbe)
         print ("Tonindex", Tonindex)
         print ("LEDAntenne", LEDAntenne())
