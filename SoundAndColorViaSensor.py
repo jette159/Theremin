@@ -27,11 +27,7 @@ X=0                 #Gemessene Entfernung
 Stg = (255*6)/MAX   #Steigung/Konstante
 Farbe = [0,0,0]     #Liste mit RGB Komponenten
 
-#Tonfrequenzberechnung
-HighTon = 52 #c''
-LowTon = 28 #c
-Tonindex =28
-Ton=440
+
 
 def setup ():
    GPIO.setmode(GPIO.BOARD)                                #GPIO Modus (BOARD / BCM)

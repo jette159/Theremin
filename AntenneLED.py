@@ -27,6 +27,12 @@ X=0                 #Gemessene Entfernung
 Stg = (255*6)/MAX   #Steigung/Konstante
 Farbe = [0,0,0]     #Liste mit RGB Komponenten
 
+#Tonfrequenzberechnung
+HighTon = 52 #c''
+LowTon = 28 #c
+Tonindex =28
+Ton=440
+
 
 def setup ():
    GPIO.setmode(GPIO.BOARD)                                #GPIO Modus (BOARD / BCM)
@@ -68,8 +74,28 @@ def MDistanz():
 
         return MDistanz
 
+def Frequenz(Distanz):
+    global Ton
+    global Tonindex
+    #n = int(-float((HighTon-LowTon)/MAX)*Distanz+HighTon) #höchster Ton unten
+    n = int(float((HighTon-LowTon)/MAX)*Distanz+LowTon) #tiefster Ton unten
+    if n < LowTon:
+        Tonindex = LowTon
+    elif n <= HighTon:
+        Tonindex = n
+    else:
+        Tonindex = HighTon
+    Frequenz = round(2**((Tonindex-49)/12)*440,3)
+    Ton = Frequenz
+    return Frequenz
+
+def LEDAntenne():                                           #Wie viele LEDs an der Antenne gehen an
+    LEDAntenne = round((Tonindex-LowTon+1)/LED_COUNT_2,0)
+    return LEDAntenne
+
+
 def showColor(strip2, color):                     #LED Streifen an machen in color
-    for i in range(strip2.numPixels()):
+    for i in range(LEDCount()):
         strip2.setPixelColor(i, color)
         strip2.show()
 
