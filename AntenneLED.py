@@ -92,7 +92,8 @@ def Frequenz(Distanz):
 
 def LEDAntenne():                                           #Wie viele LEDs an der Antenne gehen an
     global LEDAntenne
-    LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))
+    LEDNr = round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0)
+    LEDAntenne = int(LEDNr)
 
 
 def showColor(strip, color):                     #LED Streifen an machen in color
