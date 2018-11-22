@@ -7,9 +7,10 @@ wie baut man ein poti an?                                               -->
 
 
 
-Fritzingplan                                                            --> Done
+Fritzingplan mit neuer Extra Stromquelle Updaten & selber Teile bauen   -->
 VolumenSensor integrieren                                               --> Angefangen. Noch nciht getestet
-Case Planung                                                            -->
+Case Planung                                                            --> Done
+Case Ausführung                                                         --> in Arbeit
 
 frequenz deckeln                                                        --> Done
 variablen namen aufräumen/angleichen                                    --> Done
