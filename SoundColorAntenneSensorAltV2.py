@@ -33,7 +33,7 @@ MDistanz = 0
 Median = [0,0,0,0,0,0,0,0,0] #Liste für Median
 
 #Farbberechnung aus Distanz
-MAX = 60            #MAXimale Entfernung
+MAX = 41            #MAXimale Entfernung
 X=0                 #Gemessene Entfernung
 Stg = (255*6)/MAX   #Steigung/Konstante
 Farbe = [0,0,0]     #Liste mit RGB Komponenten
@@ -186,7 +186,7 @@ try:
         Frequenz(X)                             # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
         send_Frequenz_to_pure_Data()
         set_Color(X)
-        LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+5
+        LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
         LEDoff(strip2, Color(0,0,0))
         showColorAntenne(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
         LEDAntenneAlt=LEDAntenne
