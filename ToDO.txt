@@ -3,8 +3,8 @@ was machen wir als nächstes:
 LED-Antennen-Streifen einbauen                                          -->
 Display nutzen können                                                   -->
 LÖTEN!                                                                  -->
-Fritzingplan mit neuer Extra Stromquelle Updaten & selber Teile bauen   --> Done
 VolumenSensor integrieren                                               --> Angefangen. Noch nciht getestet
+Fritzingplan mit neuer Extra Stromquelle Updaten & selber Teile bauen   --> Done
 Case Planung                                                            --> Done
 Case Ausführung     Pt. I                                               --> Done
                     Pt. II (Plexischeibe und Rückklappe)                -->
