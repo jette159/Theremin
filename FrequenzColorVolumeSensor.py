@@ -184,7 +184,7 @@ def LEDoff (strip, color):
             strip.setPixelColor(i, color)
             strip.show()
 
-def Red():                                  #Festlegung des Rotwerts aus Entfernung
+def Red(X):                                  #Festlegung des Rotwerts aus Entfernung
     if X <= 1/6*MAX:
         Farbe[0]=255
     elif X <= 2/6*MAX:
@@ -196,7 +196,7 @@ def Red():                                  #Festlegung des Rotwerts aus Entfern
     else:
         Farbe[0]=255
 
-def Green():                                #Festlegung des Grünwerts aus Entfernung
+def Green(X):                                #Festlegung des Grünwerts aus Entfernung
     if X <= 1/6*MAX:
         Farbe[1]=int(Stg*X)
     elif X <= 3/6*MAX:
@@ -206,7 +206,7 @@ def Green():                                #Festlegung des Grünwerts aus Entfe
     else:
         Farbe[1]=0
 
-def Blue():                                 #Festlegung des Blauwerts aus Entfernung
+def Blue(X):                                 #Festlegung des Blauwerts aus Entfernung
     if X <= 2/6*MAX:
         Farbe[2]= 0
     elif X <= 3/6*MAX:
@@ -223,9 +223,9 @@ def set_Color (X):
     if X <= 0:                                          #näher als 5 dran Licht = Rot
         Farbe = [255,0,0]
     elif X <= MAX:                                      #Farbe aus Funktionen
-        Red()
-        Green()
-        Blue()
+        Red(X)
+        Green(X)
+        Blue(X)
     else:                                               #Farbe lassen und Meldung raus geben
         print("zu weit weg")
     showColor(strip, Color(Farbe[0],Farbe[1],Farbe[2]))
