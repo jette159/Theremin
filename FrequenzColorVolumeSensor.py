@@ -248,7 +248,7 @@ try:
         set_Volume(final_Distanz_V)
         send_Frequenz_and_Volume_to_pure_Data()
         print(final_Distanz_F)
-        set_Color(final_Distanz_F)
+        set_Color(int(final_Distanz_F))
         print(final_Distanz_F)
         LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
         LEDoff(strip2, Color(0,0,0))
