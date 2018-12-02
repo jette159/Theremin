@@ -240,7 +240,7 @@ try:
         X= MDistanz_F()-5
         Frequenz(X)
         Y=MDistanz_V()-5
-        Volume(Y)
+        Volume = Y/MAX_V
         send_Frequenz_and_Volume_to_pure_Data()
         set_Color(X)
         LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
