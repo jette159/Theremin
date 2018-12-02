@@ -173,6 +173,7 @@ def showColor(strip, color):                     #LED Streifen an machen in colo
         strip.show()
 
 def LEDoff (strip, color):
+    global LEDAntenne
     LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
     if LEDAntenneAlt > LEDAntenne:
         X= LEDAntenne
