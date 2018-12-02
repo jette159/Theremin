@@ -55,7 +55,7 @@ Tonindex =28
 Ton=440
 
 #Volumeberechnung
-MAX_V = 60
+MAX_V = float(60)
 Volume = 0
 
 def setup ():
@@ -239,8 +239,8 @@ try:
     while True:                                             # Mainloop # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
         X= MDistanz_F()-5
         Frequenz(X)
-        Y=MDistanz_V()-5
-        Volume = Y/MAX_V
+        Y=float(MDistanz_V()-5)
+        Volume = float(Y/MAX_V)
         send_Frequenz_and_Volume_to_pure_Data()
         set_Color(X)
         LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
