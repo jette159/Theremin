@@ -241,13 +241,14 @@ try:
         Frequenz(X)
         Y=float(MDistanz_V()-5)
         Volume = float(Y/MAX_V)
+        print(Volume)
         send_Frequenz_and_Volume_to_pure_Data()
         set_Color(X)
         LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
         LEDoff(strip2, Color(0,0,0))
         showColorAntenne(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
         LEDAntenneAlt=LEDAntenne
-        print(Tonindex, Ton)
+        #print(Tonindex, Ton)
 
 except KeyboardInterrupt:
     showColor(strip, Color(0,0,0))                          #Licht aus
