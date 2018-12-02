@@ -240,6 +240,7 @@ try:
         X= MDistanz_F()-5
         Frequenz(X)
         Y=float(MDistanz_V()-5)
+        print (Y)
         Volume = float(Y/MAX_V)
         print(Volume)
         send_Frequenz_and_Volume_to_pure_Data()
