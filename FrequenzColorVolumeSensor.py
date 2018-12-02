@@ -120,9 +120,9 @@ def send_Frequenz_and_Volume_to_pure_Data():
     host = socket.gethostname()
     port = 3000
     s.connect((host, port))
-    message = 0 + str(Ton) + " ;" #Need to add " ;" at the end so pd knows when you're finished writing.
+    message = str(0) + str(Ton) + " ;" #Need to add " ;" at the end so pd knows when you're finished writing.
     s.send(message.encode('utf-8'))
-    message = 1 + str(Volume) + " ;" #Need to add " ;" at the end so pd knows when you're finished writing.
+    message = str(1) + str(Volume) + " ;" #Need to add " ;" at the end so pd knows when you're finished writing.
     s.send(message.encode('utf-8'))
 
 def get_distanz_V():
