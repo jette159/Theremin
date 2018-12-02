@@ -241,11 +241,9 @@ try:
     while True:                                             # Mainloop # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
         X= MDistanz_F()-5
         Frequenz(X)
-        print(get_distanz_V())
         Y=float(MDistanz_V()-5)
-        #print (Y)
         Volume = float(Y/MAX_V)
-        #print(Volume)
+        print(Volume)
         send_Frequenz_and_Volume_to_pure_Data()
         set_Color(X)
         LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
