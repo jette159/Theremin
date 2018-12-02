@@ -55,7 +55,7 @@ Tonindex =28
 Ton=440
 
 #Volumeberechnung
-MAX_V = float(60)
+MAX_V = float(30)
 Volume = 0
 
 def setup ():
