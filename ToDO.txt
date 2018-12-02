@@ -1,9 +1,11 @@
 was machen wir als nächstes:
 
-LED-Antennen-Streifen einbauen                                          -->
+Volume deckeln                                                          -->
+LED Antene nicht vollaufen lassen                                       -->
+LED-Antennen-Streifen einbauen                                          --> Muss  noch angepasst werden
 Display nutzen können                                                   -->
 LÖTEN!                                                                  -->
-VolumenSensor integrieren                                               --> Angefangen. Noch nciht getestet
+VolumenSensor integrieren                                               --> Done
 Fritzingplan mit neuer Extra Stromquelle Updaten & selber Teile bauen   --> Done
 Case Planung                                                            --> Done
 Case Ausführung     Pt. I                                               --> Done

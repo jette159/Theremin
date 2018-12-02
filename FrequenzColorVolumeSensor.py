@@ -97,10 +97,10 @@ def MDistanz_F():
         time.sleep(0.001)
     Median_F = sorted(Median_F)
     MDistanz_F= round((Median_F[4]),2)
-
+    MDistanz_F=MDistanz_F-5
     return MDistanz_F
 
-def Frequenz(Distanz):
+def set_Frequenz(Distanz):
     global Ton
     global Tonindex
     #n = int(-float((HighTon-LowTon)/MAX)*Distanz+HighTon) #höchster Ton unten
@@ -160,10 +160,10 @@ def MDistanz_V():
         time.sleep(0.001)
     Median_V = sorted(Median_V)
     MDistanz_V= round((Median_V[4]),2)
+    MDistanz_V=MDistanz_V-5
+    return float(MDistanz_V)
 
-    return MDistanz_V
-
-def Volume(Distanz):
+def set_Volume(Distanz):
     global Volume
     Volume = Distanz/MAX_V #100% = 1
 
@@ -241,13 +241,12 @@ print ('Press Ctrl-C to quit.')
 
 try:
     while True:                                             # Mainloop # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
-        X= MDistanz_F()-5
-        Frequenz(X)
-        Y=float(MDistanz_V()-5)
-        Volume = float(Y/MAX_V)
-        print(Volume)
+        final_Distanz_F= MDistanz_F()
+        set_Frequenz(final_Distanz_F)
+        final_Distanz_V=MDistanz_V()
+        set_Volume(final_Distanz_V)
         send_Frequenz_and_Volume_to_pure_Data()
-        set_Color(X)
+        set_Color(final_Distanz_F)
         LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
         LEDoff(strip2, Color(0,0,0))
         showColorAntenne(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
