@@ -176,6 +176,7 @@ def LEDoff (strip, color):
     LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
     if LEDAntenneAlt > LEDAntenne:
         X= LEDAntenne
+        print(X)
         for i in range (X,LED_COUNT_2):
             strip.setPixelColor(i, color)
             strip.show()
@@ -249,7 +250,7 @@ try:
         final_Distanz_V=MDistanz_V()
         set_Volume(final_Distanz_V)
         send_Frequenz_and_Volume_to_pure_Data()
-        set_Color(int(final_Distanz_F))
+        set_Color(final_Distanz_F)
         LEDoff(strip2, Color(0,0,0))
         showColorAntenne(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
 
