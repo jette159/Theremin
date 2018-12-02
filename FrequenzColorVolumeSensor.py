@@ -172,20 +172,20 @@ def showColor(strip, color):                     #LED Streifen an machen in colo
         strip.setPixelColor(i, color)
         strip.show()
 
-def showColorAntenne(strip2, color):                     #LED Streifen an machen in color
-    global LEDAntenneAlt
-    LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
-    for i in range(0,LEDAntenne):
-        strip2.setPixelColor(i, color)
-        strip2.show()
-    LEDAntenneAlt=LEDAntenne
-
 def LEDoff (strip, color):
+    LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
     if LEDAntenneAlt > LEDAntenne:
         X= LEDAntenne
         for i in range (X,LED_COUNT_2):
             strip.setPixelColor(i, color)
             strip.show()
+
+def showColorAntenne(strip2, color):                     #LED Streifen an machen in color
+    global LEDAntenneAlt
+    for i in range(0,LEDAntenne):
+        strip2.setPixelColor(i, color)
+        strip2.show()
+    LEDAntenneAlt=LEDAntenne
 
 def Red(X):                                  #Festlegung des Rotwerts aus Entfernung
     if X <= 1/6*MAX:
