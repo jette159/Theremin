@@ -70,16 +70,16 @@ def get_distanz_F():
     time.sleep(0.00001)                                 # setze Trigger nach 0.01ms aus LOW
     GPIO.output(GPIO_TRIGGER_F, False)
 
-    StartZeit = time.time()                             #Start- und Stopzeit definieren
-    StopZeit = time.time()
+    StartZeit_F = time.time()                             #Start- und Stopzeit definieren
+    StopZeit_F = time.time()
 
     while GPIO.input(GPIO_ECHO_F) == 0:                   # speichere Startzeit
-        StartZeit = time.time()
+        StartZeit_F = time.time()
 
     while GPIO.input(GPIO_ECHO_F) == 1:                   # speichere Ankunftszeit
-        StopZeit = time.time()
+        StopZeit_F = time.time()
 
-    TimeElapsed = StopZeit - StartZeit                  # Zeitdifferenz zwischen Start und Ankunft
+    TimeElapsed = StopZeit_F - StartZeit_F                  # Zeitdifferenz zwischen Start und Ankunft
 
     Distanz_F = round(float((TimeElapsed * 34300) / 2),0)  # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
 
@@ -132,16 +132,16 @@ def get_distanz_V():
     time.sleep(0.00001)                                 # setze Trigger nach 0.01ms aus LOW
     GPIO.output(GPIO_TRIGGER_F, False)
 
-    StartZeit = time.time()                             #Start- und Stopzeit definieren
-    StopZeit = time.time()
+    StartZeit_V = time.time()                             #Start- und Stopzeit definieren
+    StopZeit_V = time.time()
 
     while GPIO.input(GPIO_ECHO_F) == 0:                   # speichere Startzeit
-        StartZeit = time.time()
+        StartZeit_V = time.time()
 
     while GPIO.input(GPIO_ECHO_F) == 1:                   # speichere Ankunftszeit
-        StopZeit = time.time()
+        StopZeit_V = time.time()
 
-    TimeElapsed = StopZeit - StartZeit                  # Zeitdifferenz zwischen Start und Ankunft
+    TimeElapsed = StopZeit_V - StartZeit_V                  # Zeitdifferenz zwischen Start und Ankunft
 
     Distanz_V = round(float((TimeElapsed * 34300) / 2),0)  # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
 
