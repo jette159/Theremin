@@ -1,4 +1,4 @@
-#N canvas 953 0 958 1028 10;
+#N canvas 523 41 1366 685 10;
 #X obj 423 586 dac~;
 #X obj 524 591 tabwrite~ array1;
 #N canvas 0 50 450 250 (subpatch) 0;
@@ -62,7 +62,7 @@
 #X obj 117 204 osc~ 440;
 #X obj 759 242 phasor~ 440;
 #X obj 826 254 phasor~ 440;
-#X obj 421 540 *~ 0.5;
+#X obj 407 545 *~ 0.5;
 #X connect 3 0 1 0;
 #X connect 4 0 1 0;
 #X connect 4 0 45 0;

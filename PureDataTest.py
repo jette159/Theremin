@@ -10,8 +10,10 @@ def send_Frequenz_and_Volume_to_pure_Data():
     s.connect((host, port))
     message = "0 " + str(Ton) + " ;" #Need to add " ;" at the end so pd knows when you're finished writing.
     s.send(message.encode('utf-8'))
+    print (message)
     message = "1 " + str(Volume) + " ;" #Need to add " ;" at the end so pd knows when you're finished writing.
     s.send(message.encode('utf-8'))
+    print (message)
 
 while True:
     Ton=input("Ton")
