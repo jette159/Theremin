@@ -1,4 +1,4 @@
-#N canvas -8 -8 1920 1037 10;
+#N canvas 953 0 958 1028 10;
 #X obj 423 586 dac~;
 #X obj 524 591 tabwrite~ array1;
 #N canvas 0 50 450 250 (subpatch) 0;
@@ -48,8 +48,8 @@
 #X text 817 374 vol rechteck;
 #X obj 421 540 *~;
 #X floatatom 664 113 5 0 0 0 - - -;
-#X obj 495 27 netreceive 3000;
-#X obj 495 48 route 0 1;
+#X obj 473 11 netreceive 3000;
+#X obj 575 67 route 0 1;
 #X text 565 47 0=Frequenz 1=Volume werte von 0-1;
 #X text 520 634 als überprüfung beim finalen wegmachen;
 #X obj 317 274 *~ 0.2;
@@ -63,7 +63,6 @@
 #X text 823 335 lop reechteck;
 #X obj 296 211 phasor~;
 #X obj 117 204 osc~;
-#X obj 311 504 1;
 #X connect 3 0 1 0;
 #X connect 4 0 1 0;
 #X connect 4 0 29 0;
@@ -94,8 +93,10 @@
 #X connect 27 0 45 0;
 #X connect 29 0 0 0;
 #X connect 29 0 0 1;
+#X connect 30 0 29 1;
 #X connect 31 0 32 0;
 #X connect 32 0 27 0;
+#X connect 32 1 30 0;
 #X connect 35 0 4 0;
 #X connect 36 0 4 0;
 #X connect 37 0 4 1;
@@ -104,4 +105,3 @@
 #X connect 40 0 37 0;
 #X connect 44 0 39 0;
 #X connect 45 0 36 0;
-#X connect 46 0 29 1;
