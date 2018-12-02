@@ -124,10 +124,8 @@ def send_Frequenz_and_Volume_to_pure_Data():
     s.connect((host, port))
     message = "0 " + str(Ton) + " ;" #Need to add " ;" at the end so pd knows when you're finished writing.
     s.send(message.encode('utf-8'))
-    print (message)
     message = "1 " + str(Volume) + " ;" #Need to add " ;" at the end so pd knows when you're finished writing.
     s.send(message.encode('utf-8'))
-    print (message)
 
 def get_distanz_V():
     global Distanz_V
@@ -177,7 +175,6 @@ def LEDoff (strip, color):
     LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
     if LEDAntenneAlt > LEDAntenne:
         X= LEDAntenne
-        print(X)
         for i in range (X,LED_COUNT_2):
             strip.setPixelColor(i, color)
             strip.show()
@@ -231,8 +228,9 @@ def set_Color (X):
         Red(X)
         Green(X)
         Blue(X)
-    else:                                               #Farbe lassen und Meldung raus geben
-        print("zu weit weg")
+    else:
+        ()                                                 #Farbe lassen und Meldung raus geben
+
     showColor(strip, Color(Farbe[0],Farbe[1],Farbe[2]))
 
 
