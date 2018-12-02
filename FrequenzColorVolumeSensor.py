@@ -127,18 +127,18 @@ def send_Frequenz_and_Volume_to_pure_Data():
 
 def get_distanz_V():
     global Distanz_V
-    GPIO.output(GPIO_TRIGGER_F, True)                     # setze Trigger auf HIGH
+    GPIO.output(GPIO_TRIGGER_V, True)                     # setze Trigger auf HIGH
 
     time.sleep(0.00001)                                 # setze Trigger nach 0.01ms aus LOW
-    GPIO.output(GPIO_TRIGGER_F, False)
+    GPIO.output(GPIO_TRIGGER_V, False)
 
     StartZeit_V = time.time()                             #Start- und Stopzeit definieren
     StopZeit_V = time.time()
 
-    while GPIO.input(GPIO_ECHO_F) == 0:                   # speichere Startzeit
+    while GPIO.input(GPIO_ECHO_V) == 0:                   # speichere Startzeit
         StartZeit_V = time.time()
 
-    while GPIO.input(GPIO_ECHO_F) == 1:                   # speichere Ankunftszeit
+    while GPIO.input(GPIO_ECHO_V) == 1:                   # speichere Ankunftszeit
         StopZeit_V = time.time()
 
     TimeElapsed = StopZeit_V - StartZeit_V                  # Zeitdifferenz zwischen Start und Ankunft
