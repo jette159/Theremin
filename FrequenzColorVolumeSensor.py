@@ -176,10 +176,10 @@ def showColorAntenne(strip2, color):                     #LED Streifen an machen
     global LEDAntenneAlt
     LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
     LEDoff(strip2, Color(0,0,0))
-    LEDAntenneAlt=LEDAntenne
     for i in range(0,LEDAntenne):
         strip2.setPixelColor(i, color)
         strip2.show()
+    LEDAntenneAlt=LEDAntenne
 
 def LEDoff (strip, color):
     if LEDAntenneAlt > LEDAntenne:
