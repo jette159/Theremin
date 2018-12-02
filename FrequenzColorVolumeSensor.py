@@ -175,7 +175,6 @@ def showColor(strip, color):                     #LED Streifen an machen in colo
 def showColorAntenne(strip2, color):                     #LED Streifen an machen in color
     global LEDAntenneAlt
     LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
-    LEDoff(strip2, Color(0,0,0))
     for i in range(0,LEDAntenne):
         strip2.setPixelColor(i, color)
         strip2.show()
@@ -251,6 +250,7 @@ try:
         set_Volume(final_Distanz_V)
         send_Frequenz_and_Volume_to_pure_Data()
         set_Color(int(final_Distanz_F))
+        LEDoff(strip2, Color(0,0,0))
         showColorAntenne(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
 
 
