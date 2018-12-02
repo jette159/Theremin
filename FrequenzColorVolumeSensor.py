@@ -59,9 +59,11 @@ MAX_V = float(60)
 Volume = 0
 
 def setup ():
-   GPIO.setmode(GPIO.BOARD)                                #GPIO Modus (BOARD / BCM)
-   GPIO.setup(GPIO_TRIGGER_F, GPIO.OUT)                      #Richtung der GPIO-Pins festlegen (IN / OUT)
-   GPIO.setup(GPIO_ECHO_F, GPIO.IN)
+    GPIO.setmode(GPIO.BOARD)                                #GPIO Modus (BOARD / BCM)
+    GPIO.setup(GPIO_TRIGGER_F, GPIO.OUT)                      #Richtung der GPIO-Pins festlegen (IN / OUT)
+    GPIO.setup(GPIO_ECHO_F, GPIO.IN)
+    GPIO.setup(GPIO_TRIGGER_V, GPIO.OUT)                      #Richtung der GPIO-Pins festlegen (IN / OUT)
+    GPIO.setup(GPIO_ECHO_V, GPIO.IN)
 
 def get_distanz_F():
     global Distanz_F
