@@ -166,7 +166,13 @@ def MDistanz_V():
 
 def set_Volume(Distanz):
     global Volume
-    Volume = Distanz/MAX_V #100% = 1
+    CalcVolume = Distanz/MAX_V #100% = 1
+    if CalcVolume < 0:
+        Volume = 0
+    elif CalcVolume <=1:
+        Volume = CalcVolume
+    else:
+        Volume = 1
 
 def showColor(strip, color):                     #LED Streifen an machen in color
     for i in range(strip.numPixels()):
