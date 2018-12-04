@@ -1,7 +1,9 @@
 was machen wir als nächstes:
 
-Volume deckeln                                                          -->
-LED Antene nicht vollaufen lassen                                       -->
+Display Lötstellen ordentlich machen                                    -->
+Python3 Libary fürs Display                                             -->
+Volume deckeln                                                          -->Done
+LED Antene nicht vollaufen lassen                                       -->Done
 LED-Antennen-Streifen einbauen                                          --> Muss  noch angepasst werden
 Display nutzen können                                                   -->
 LÖTEN!                                                                  --> Done fürs erste
