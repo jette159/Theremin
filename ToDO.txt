@@ -4,7 +4,7 @@ Volume deckeln                                                          -->
 LED Antene nicht vollaufen lassen                                       -->
 LED-Antennen-Streifen einbauen                                          --> Muss  noch angepasst werden
 Display nutzen können                                                   -->
-LÖTEN!                                                                  -->
+LÖTEN!                                                                  --> Done fürs erste
 VolumenSensor integrieren                                               --> Done
 Fritzingplan mit neuer Extra Stromquelle Updaten & selber Teile bauen   --> Done
 Case Planung                                                            --> Done

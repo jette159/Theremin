@@ -52,6 +52,7 @@ Farbe = [0,0,0]     #Liste mit RGB Komponenten
 HighTon = 52 #c''
 LowTon = 28 #c
 Tonindex =28
+Tonindexalt = 28
 Ton=440
 
 #Volumeberechnung
@@ -103,14 +104,16 @@ def MDistanz_F():
 def set_Frequenz(Distanz):
     global Ton
     global Tonindex
+    global Tonindexalt
     #n = int(-float((HighTon-LowTon)/MAX)*Distanz+HighTon) #höchster Ton unten
     n = int(float((HighTon-LowTon)/MAX)*Distanz+LowTon) #tiefster Ton unten
     if n < LowTon:
         Tonindex = LowTon
     elif n <= HighTon:
         Tonindex = n
+        Tonindexalt = Tonindex
     else:
-        Tonindex = HighTon
+        Tonindex = Tonindexalt
     Frequenz = round(2**((Tonindex-49)/12)*440,3)
     Ton = Frequenz
     return Frequenz
