@@ -1,7 +1,10 @@
 was machen wir als nächstes:
 
-Display Lötstellen ordentlich machen                                    -->
 Python3 Libary fürs Display                                             -->
+Display Lötstellen ordentlich machen                                    -->
+Display Programmieren
+Switch löten                                                            -->
+Switch programm testen                                                  -->
 Volume deckeln                                                          -->Done
 LED Antene nicht vollaufen lassen                                       -->Done
 LED-Antennen-Streifen einbauen                                          --> Muss  noch angepasst werden
