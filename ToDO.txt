@@ -21,7 +21,6 @@ Prüfen ob unsere Struktur in Ordnung ist                                --> IMM
 Hardware kram raus finden:
 externe stromersorgung wegen LEDs?                                      --> Ist gekauft. Aufschneiden & anlöten
 wie funktionieren die Displays da?                                      --> Besorgt. RAUSFINDEN!
-wie baut man ein poti an?                                               -->
 
 frequenz deckeln                                                        --> Done
 variablen namen aufräumen/angleichen                                    --> Done
