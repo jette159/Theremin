@@ -1,7 +1,4 @@
 import os
-import sys
-import random
-
 from PIL import ImageFont
 
 from luma.core.interface.serial import i2c, spi
