@@ -67,6 +67,33 @@ Volume = 0
 
 #Displayparameter
 serial = i2c(port=1, address=0x3C)
+ TonindexToBuchstabe =	{
+  "28": "c",
+  "29": "c#",
+  "30": "d",
+  "31": "d#" ,
+  "32": "e",
+  "33": "f",
+  "34": "f#",
+  "35": "g",
+  "36": "g#",
+  "37": "a",
+  "38": "a#",
+  "39": "h",
+  "40": "c'",
+  "41": "c#'",
+  "42": "d'",
+  "43": "d#'",
+  "44": "e'",
+  "45": "f'",
+  "46": "f#'",
+  "47": "g'",
+  "48": "g#'",
+  "49": "a'",
+  "50": "a#'",
+  "51": "h'",
+  "52": "c''",
+}
 
 def setup ():
     GPIO.setmode(GPIO.BOARD)                                #GPIO Modus (BOARD / BCM)
@@ -260,10 +287,10 @@ def make_font(name, size):
 def showTonindex(text):
 
     font = make_font("C&C Red Alert [INET].ttf", 40)
-
+    Index = str(text)
     with canvas(device) as draw:
         draw.rectangle(device.bounding_box, fill="black", outline="white")
-        draw.text((60,15 ), text=str(text), fill= "white", font=font)
+        draw.text((60,15 ), text= TonindexToBuchstabe[Index], fill= "white", font=font)
 
 
 setup()
