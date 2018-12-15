@@ -299,10 +299,11 @@ strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, 
 strip.begin()
 strip2 = Adafruit_NeoPixel(LED_COUNT_2, LED_PIN_2, LED_FREQ_HZ_2, LED_DMA_2, LED_INVERT_2, LED_BRIGHTNESS_2, LED_CHANNEL_2)        #Strip inizieren
 strip2.begin()
+device = ssd1306(serial)
 print ('Press Ctrl-C to quit.')
 
 try:
-    device = ssd1306(serial)
+
     while True:                                             # Mainloop # das -5 da es in zu nah am Sensor merkwürdig Schwank und so quasi erst ab 5cm Entfernung anfängt
         final_Distanz_F= MDistanz_F()
         set_Frequenz(final_Distanz_F)

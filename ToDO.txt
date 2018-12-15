@@ -1,21 +1,21 @@
 was machen wir als nächstes:
 
-Python3 Libary fürs Display                                             -->
-Display Lötstellen ordentlich machen                                    -->
-Display Programmieren
 Switch löten                                                            -->
 Switch programm testen                                                  -->
+Python3 Libary fürs Display                                             --> Done
+Display Lötstellen ordentlich machen                                    --> Done
+Display Programmieren                                                   --> Done
 Volume deckeln                                                          -->Done
 LED Antene nicht vollaufen lassen                                       -->Done
 LED-Antennen-Streifen einbauen                                          --> Muss  noch angepasst werden
-Display nutzen können                                                   -->
+Display nutzen können                                                   --> Done
 LÖTEN!                                                                  --> Done fürs erste
 VolumenSensor integrieren                                               --> Done
 Fritzingplan mit neuer Extra Stromquelle Updaten & selber Teile bauen   --> Done
 Case Planung                                                            --> Done
 Case Ausführung     Pt. I                                               --> Done
                     Pt. II (Plexischeibe und Rückklappe)                -->
-                    Pt. III Optik                                       -->
+                    Pt. III Optik                                       --> in Arbeit
 Prüfen ob unsere Struktur in Ordnung ist                                --> IMMER!
 
 Hardware kram raus finden:
