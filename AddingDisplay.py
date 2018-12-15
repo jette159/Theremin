@@ -67,7 +67,7 @@ Volume = 0
 
 #Displayparameter
 serial = i2c(port=1, address=0x3C)
- TonindexToBuchstabe =	{
+TonindexToBuchstabe =	{
   "28": "c",
   "29": "c#",
   "30": "d",
