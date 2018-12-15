@@ -263,7 +263,7 @@ def showTonindex(text):
 
     with canvas(device) as draw:
         draw.rectangle(device.bounding_box, fill="black", outline="white")
-        draw.text((60,15 ), text=text, fill= "white", font=font)
+        draw.text((60,15 ), text=str(text), fill= "white", font=font)
 
 
 setup()
