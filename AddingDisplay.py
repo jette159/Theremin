@@ -257,13 +257,13 @@ def make_font(name, size):
     return ImageFont.truetype(font_path, size)
 
 
-def showTonindex():
+def showTonindex(text):
 
     font = make_font("C&C Red Alert [INET].ttf", 40)
 
     with canvas(device) as draw:
         draw.rectangle(device.bounding_box, fill="black", outline="white")
-        draw.text((60,15 ), text="c", fill= "white", font=font)
+        draw.text((60,15 ), text=text, fill= "white", font=font)
 
 
 setup()
@@ -285,7 +285,7 @@ try:
         set_Color(final_Distanz_F)
         LEDoff(strip2, Color(0,0,0))
         showColorAntenne(strip2, Color(Farbe[0],Farbe[1],Farbe[2]))
-        showTonindex()
+        showTonindex(Tonindex)
 
 
 except KeyboardInterrupt:
