@@ -291,7 +291,9 @@ def showTonindex(text):
     font = make_font("space age.ttf", 40)
     Index = str(text)
     with canvas(device) as draw:
+
         draw.rectangle(device.bounding_box, fill="black", outline="white")
+        draw.rectangle(40,40, fill="White", outline="white")
         draw.text((40,15 ), text= TonindexToBuchstabe[Index], fill= "white", font=font)
 
 def get_mode ():
@@ -299,11 +301,11 @@ def get_mode ():
     input_state1 = GPIO.input(38)
     input_state2 = GPIO.input(36)
     if input_state1 == False and input_state2 == True:
-        Mode = "1"
+        Mode = "Mute"
     elif input_state1 == True and input_state2 == False:
-        Mode = "2"
+        Mode = "Sound1"
     elif input_state1 == False and input_state2 == False:
-        Mode = "3"
+        Mode = "Sound2"
     else:
         Mode = "Chaos!"
 

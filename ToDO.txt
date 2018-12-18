@@ -1,8 +1,8 @@
 was machen wir als nächstes:
 
-Switch löten                                                            -->
-Switch integrieren                                                      -->
-Neue Sounds basteln [Pure Data]                                         -->
+Switch löten                                                            --> Done
+Switch integrieren                                                      --> Done
+Neue Sounds basteln [Pure Data] und Switch usen                         -->
 Case Alles Fest machen                                                  -->
 While-Schleifen der Sensorauslessung zeitlich begrenzen                 -->
 Sample Rate der Snesoren erhöhen
