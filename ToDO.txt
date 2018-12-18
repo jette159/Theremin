@@ -4,8 +4,11 @@ Switch löten                                                            -->
 Switch integrieren                                                      -->
 Neue Sounds basteln [Pure Data]                                         -->
 Case Alles Fest machen                                                  -->
+While-Schleifen der Sensorauslessung zeitlich begrenzen                 -->
+Sample Rate der Snesoren erhöhen
 Feinjustierung bzw. Kalibrieren                                         -->
 Scheibe & Rückseite                                                     -->
+Schrift im Display zentrieren & Schalter zeile                          -->
 Switch programm testen                                                  --> Done
 Python3 Libary fürs Display                                             --> Done
 Display Lötstellen ordentlich machen                                    --> Done
