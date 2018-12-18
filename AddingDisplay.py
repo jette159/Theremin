@@ -286,7 +286,7 @@ def make_font(name, size):
 
 def showTonindex(text):
 
-    font = make_font("C&C Red Alert [INET].ttf", 40)
+    font = make_font("space age.ttf", 40)
     Index = str(text)
     with canvas(device) as draw:
         draw.rectangle(device.bounding_box, fill="black", outline="white")

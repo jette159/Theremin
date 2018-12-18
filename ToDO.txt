@@ -1,7 +1,12 @@
 was machen wir als nächstes:
 
 Switch löten                                                            -->
-Switch programm testen                                                  -->
+Switch integrieren                                                      -->
+Neue Sounds basteln [Pure Data]                                         -->
+Case Alles Fest machen                                                  -->
+Feinjustierung bzw. Kalibrieren                                         -->
+Scheibe & Rückseite                                                     -->
+Switch programm testen                                                  --> Done
 Python3 Libary fürs Display                                             --> Done
 Display Lötstellen ordentlich machen                                    --> Done
 Display Programmieren                                                   --> Done
