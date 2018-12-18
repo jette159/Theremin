@@ -305,9 +305,9 @@ def get_mode ():
     if input_state1 == False and input_state2 == True:
         Mode = "Mute"
     elif input_state1 == True and input_state2 == False:
-        Mode = "Sound1"
+        Mode = "Sound 1"
     elif input_state1 == False and input_state2 == False:
-        Mode = "Sound2"
+        Mode = "Sound 2"
     else:
         Mode = "Chaos!"
 
