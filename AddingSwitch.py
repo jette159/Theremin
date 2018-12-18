@@ -292,8 +292,9 @@ def showTonindex(text):
     Index = str(text)
     with canvas(device) as draw:
 
-        draw.rectangle1(device.bounding_box, fill="black", outline="white")
-        draw.rectangle2(40,40, fill="White", outline="white")
+        draw.rectangle(device.bounding_box, fill="black", outline="white")
+        #draw.rectangle(40,40, fill="White", outline="white")
+        draw.text((10,0), text= "Mode"+ Mode, fill="white", font=font)
         draw.text((40,15 ), text= TonindexToBuchstabe[Index], fill= "white", font=font)
 
 def get_mode ():
