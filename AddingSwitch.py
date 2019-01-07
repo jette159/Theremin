@@ -38,14 +38,15 @@ LEDAntenne       = 1
 LEDAntenneAlt    = 0
 
 #Distanzwert Frequenz
+n = 21 # Anzahl an Samplewerten UNGRADE
 Distanz_F = 0
 MDistanz_F = 0
-Median_F = [0,0,0,0,0,0,0,0,0] #Liste für Median
+Median_F = [0]*n #Liste für Median
 
 #Distanzwert Volume
 Distanz_V = 0
 MDistanz_V = 0
-Median_V = [0,0,0,0,0,0,0,0,0] #Liste für Median
+Median_V = [0]*n #Liste für Median
 
 
 #Farbberechnung aus Distanz
@@ -137,12 +138,12 @@ def MDistanz_F():
     global Median_F
     global Distanz_F
 
-    for i in range(0,9):
+    for i in range(0,n):
         get_distanz_F()
         Median_F[i] = Distanz_F
         time.sleep(0.001)
     Median_F = sorted(Median_F)
-    MDistanz_F= round((Median_F[4]),2)
+    MDistanz_F= round((Median_F[8n-1)/2]),2)
     MDistanz_F=MDistanz_F-5
     return MDistanz_F
 
@@ -203,12 +204,12 @@ def get_distanz_V():
 def MDistanz_V():
     global Median_V
     global Distanz_V
-    for i in range(0,9):
+    for i in range(0,n):
         get_distanz_V()
         Median_V[i] = Distanz_V
         time.sleep(0.001)
     Median_V = sorted(Median_V)
-    MDistanz_V= round((Median_V[4]),2)
+    MDistanz_V= round((Median_V[(n-1)/2]),2)
     MDistanz_V=MDistanz_V-5
     return float(MDistanz_V)
 
