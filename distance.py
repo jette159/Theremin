@@ -3,8 +3,8 @@ import RPi.GPIO as GPIO
 import time
  
 #GPIO Pins zuweisen
-GPIO_TRIGGER = 29
-GPIO_ECHO = 31
+GPIO_TRIGGER = 11
+GPIO_ECHO = 13
  
 def setup ():
     #GPIO Modus (BOARD / BCM)
