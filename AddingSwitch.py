@@ -102,7 +102,7 @@ Mode = "Mute  "
 ModetoNumber={
     "Sound 1  ": 0,
     "Sound 2  ": 1,
-    "Mute  ": 3,
+    "Mute  ": 2,
 }
 
 def setup ():
