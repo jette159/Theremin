@@ -100,8 +100,8 @@ TonindexToBuchstabe =	{
 Mode = "Mute  "
 
 ModetoNumber={
-    "Sound 1 ": 0,
-    "Sound 2 ": 1,
+    "Sound 1  ": 0,
+    "Sound 2  ": 1,
     "Mute  ": 3,
 }
 
