@@ -5,9 +5,9 @@ Switch integrieren                                                      --> Done
 Neue Sounds basteln [Pure Data] und Switch usen                         -->
 Case Alles Fest machen                                                  -->
 While-Schleifen der Sensorauslessung zeitlich begrenzen                 -->
-Sample Rate der Snesoren erhöhen                                        -->
+Sample Rate der Snesoren erhöhen                                        --> DOne
 Feinjustierung bzw. Kalibrieren                                         -->
-Scheibe & Rückseite                                                     -->
+Scheibe & Rückseite                                                     --> >Done
 Schrift im Display zentrieren & Schalter zeile                          -->
 How to Datei in den Autostart!                                          -->
 Switch programm testen                                                  --> Done
