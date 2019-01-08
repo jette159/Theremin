@@ -145,7 +145,7 @@ def MDistanz_F():
         Median_F[i] = Distanz_F
         time.sleep(0.001)
     Median_F = sorted(Median_F)
-    MDistanz_F= round((Median_F[(Samplewerte-1)/2]),2)
+    MDistanz_F= round((Median_F[int((Samplewerte-1)/2])),2)
     MDistanz_F=MDistanz_F-5
     return MDistanz_F
 
@@ -211,7 +211,7 @@ def MDistanz_V():
         Median_V[i] = Distanz_V
         time.sleep(0.001)
     Median_V = sorted(Median_V)
-    MDistanz_V= round((Median_V[(Samplewerte-1)/2]),2)
+    MDistanz_V= round((Median_V[((Samplewerte-1)/2])),2)
     MDistanz_V=MDistanz_V-5
     return float(MDistanz_V)
 
