@@ -27,6 +27,10 @@ def distanz():
     # speichere Startzeit
     while GPIO.input(GPIO_ECHO) == 0:
         StartZeit = time.time()
+        if time.time() > StartZeit+1:
+            print ("Error")
+        else:
+            ()
  
     # speichere Ankunftszeit
     while GPIO.input(GPIO_ECHO) == 1:
