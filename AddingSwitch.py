@@ -97,7 +97,7 @@ TonindexToBuchstabe =	{
   "52": "c''",
 }
 
-Mode = "Chaos"
+Mode = "Mute"
 
 ModetoNumber={
     "Sound 1 ": 0,
