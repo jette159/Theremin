@@ -332,11 +332,11 @@ def get_mode ():
     input_state1 = GPIO.input(38)
     input_state2 = GPIO.input(36)
     if input_state1 == False and input_state2 == True:
-        Mode = "Mute  "
-    elif input_state1 == True and input_state2 == False:
-        Mode = "Sound 1  "
-    elif input_state1 == False and input_state2 == False:
         Mode = "Sound 2  "
+    elif input_state1 == True and input_state2 == False:
+        Mode = "Mute  "
+    elif input_state1 == False and input_state2 == False:
+        Mode = "Sound 1  "
     else:
         Mode = "Chaos!"
 
