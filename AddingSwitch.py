@@ -330,7 +330,7 @@ strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, 
 strip.begin()
 strip2 = Adafruit_NeoPixel(LED_COUNT_2, LED_PIN_2, LED_FREQ_HZ_2, LED_DMA_2, LED_INVERT_2, LED_BRIGHTNESS_2, LED_CHANNEL_2)        #Strip inizieren
 strip2.begin()
-device = ssd1306(serial)
+device = ssd1306(serial, rotate=2)
 print ('Press Ctrl-C to quit.')
 
 try:
