@@ -160,7 +160,7 @@ def set_Frequenz(Distanz):
     print("n",n)
     if n < LowTon:
         Tonindex = LowTon
-    elif n <= HighTon+1:
+    elif n <= HighTon:
         Tonindex = n
         Tonindexalt = Tonindex
     else:
