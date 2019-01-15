@@ -2,13 +2,13 @@ was machen wir als nächstes:
 
 Switch löten                                                            --> Done
 Switch integrieren                                                      --> Done
-Neue Sounds basteln [Pure Data] und Switch usen                         -->
+Neue Sounds basteln [Pure Data] und Switch usen                         --> Done
 Case Alles Fest machen                                                  -->
 While-Schleifen der Sensorauslessung zeitlich begrenzen                 -->
 Sample Rate der Snesoren erhöhen                                        --> DOne
 Feinjustierung bzw. Kalibrieren                                         -->
 Scheibe & Rückseite                                                     --> >Done
-Schrift im Display zentrieren & Schalter zeile                          -->
+Schrift im Display zentrieren & Schalter zeile                          -->Done /idc
 How to Datei in den Autostart!                                          -->
 Switch programm testen                                                  --> Done
 Python3 Libary fürs Display                                             --> Done
