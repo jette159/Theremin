@@ -50,7 +50,7 @@ Median_V = [0]*Samplewerte #Liste für Median
 
 
 #Farbberechnung aus Distanz
-MAX = 40            #MAXimale Entfernung
+MAX = 42            #MAXimale Entfernung
 X=0                 #Gemessene Entfernung
 Stg = (255*6)/MAX   #Steigung/Konstante
 Farbe = [0,0,0]     #Liste mit RGB Komponenten
