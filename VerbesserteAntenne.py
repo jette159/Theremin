@@ -160,7 +160,7 @@ def set_Frequenz(Distanz):
     print("n",n)
     if n < LowTon:
         Tonindex = LowTon
-    elif n <= HighTon:
+    elif n <= HighTon+1:
         Tonindex = n
         Tonindexalt = Tonindex
     else:
@@ -236,7 +236,7 @@ def showColor(strip, color):                     #LED Streifen an machen in colo
 
 def LEDoff (strip, color):
     global LEDAntenne
-    LEDAntenne = int(round((Tonindex-LowTon+1)*(LED_COUNT_2/(HighTon-LowTon+1)),0))+9
+    LEDAntenne = int(round((Tonindex-(LowTon-1)),0))+9
     print("LEDAntenne", LEDAntenne)
     if LEDAntenneAlt > LEDAntenne:
         X= LEDAntenne
