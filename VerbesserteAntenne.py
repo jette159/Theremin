@@ -38,7 +38,7 @@ LEDAntenne       = 1
 LEDAntenneAlt    = 0
 
 #Distanzwert Frequenz
-Samplewerte = int(1) # Anzahl an Samplewerten UNGRADE
+Samplewerte = int(5) # Anzahl an Samplewerten UNGRADE
 Distanz_F = 0
 MDistanz_F = 0
 Median_F = [0]*Samplewerte #Liste für Median
