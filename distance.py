@@ -29,6 +29,7 @@ def distanz():
         StartZeit = time.time()
         if time.time() > StartZeit+1:
             print ("Error")
+            break
         else:
             ()
  

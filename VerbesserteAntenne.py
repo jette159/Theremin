@@ -126,7 +126,11 @@ def get_distanz_F():
 
     while GPIO.input(GPIO_ECHO_F) == 0:                   # speichere Startzeit
         StartZeit_F = time.time()
-
+        if time.time() > StartZeit+1:
+            print ("Error")
+            break
+        else:
+            ()
     while GPIO.input(GPIO_ECHO_F) == 1:                   # speichere Ankunftszeit
         StopZeit_F = time.time()
 
@@ -192,7 +196,11 @@ def get_distanz_V():
 
     while GPIO.input(GPIO_ECHO_V) == 0:                   # speichere Startzeit
         StartZeit_V = time.time()
-
+        if time.time() > StartZeit+1:
+            print ("Error")
+            break
+        else:
+            ()
     while GPIO.input(GPIO_ECHO_V) == 1:                   # speichere Ankunftszeit
         StopZeit_V = time.time()
 
