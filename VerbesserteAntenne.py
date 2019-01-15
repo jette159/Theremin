@@ -134,6 +134,11 @@ def get_distanz_F():
     StartZeit_F = time.time()
     while GPIO.input(GPIO_ECHO_F) == 1:                   # speichere Ankunftszeit
         StopZeit_F = time.time()
+        if time.time() > StartZeit_F+1:
+            print ("Error")
+            break
+        else:
+            ()
 
     TimeElapsed = StopZeit_F - StartZeit_F                  # Zeitdifferenz zwischen Start und Ankunft
 
