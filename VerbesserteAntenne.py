@@ -38,7 +38,7 @@ LEDAntenne       = 1
 LEDAntenneAlt    = 0
 
 #Distanzwert Frequenz
-Samplewerte = int(9) # Anzahl an Samplewerten UNGRADE
+Samplewerte = int(15) # Anzahl an Samplewerten UNGRADE
 Distanz_F = 0
 MDistanz_F = 0
 Median_F = [0]*Samplewerte #Liste für Median
@@ -147,7 +147,7 @@ def MDistanz_F():
     Median_F = sorted(Median_F)
     MDistanz_F= round((Median_F[int((Samplewerte-1)/2)]),2)
     print("MDistanz",MDistanz_F)
-    MDistanz_F=MDistanz_F-5
+    MDistanz_F=MDistanz_F
     print("MDistanz - F",MDistanz_F)
     return MDistanz_F
 
