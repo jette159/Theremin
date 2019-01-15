@@ -133,7 +133,6 @@ def get_distanz_F():
     TimeElapsed = StopZeit_F - StartZeit_F                  # Zeitdifferenz zwischen Start und Ankunft
 
     Distanz_F = round(float((TimeElapsed * 34300) / 2),2)  # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
-    print("Distanz",Distanz_F)
     return Distanz_F
 
 def MDistanz_F():
@@ -146,9 +145,7 @@ def MDistanz_F():
         time.sleep(0.001)
     Median_F = sorted(Median_F)
     MDistanz_F= round((Median_F[int((Samplewerte-1)/2)]),2)
-    print("MDistanz",MDistanz_F)
     MDistanz_F=MDistanz_F
-    print("MDistanz - F",MDistanz_F)
     return MDistanz_F
 
 def set_Frequenz(Distanz):
@@ -157,7 +154,6 @@ def set_Frequenz(Distanz):
     global Tonindexalt
     #n = int(-float((HighTon-LowTon)/MAX)*Distanz+HighTon) #höchster Ton unten
     n = int(float((HighTon-LowTon)/MAX)*Distanz+LowTon) #tiefster Ton unten
-    print("n",n)
     if n < LowTon:
         Tonindex = LowTon
     elif n <= HighTon:
@@ -165,7 +161,6 @@ def set_Frequenz(Distanz):
         Tonindexalt = Tonindex
     else:
         Tonindex = Tonindexalt
-    print("Tonindex",Tonindex)
     Frequenz = round(2**((Tonindex-49)/12)*440,3)
     Ton = Frequenz
     return Frequenz
@@ -237,7 +232,6 @@ def showColor(strip, color):                     #LED Streifen an machen in colo
 def LEDoff (strip, color):
     global LEDAntenne
     LEDAntenne = int(round((Tonindex-(LowTon-1)),0))+9
-    print("LEDAntenne", LEDAntenne)
     if LEDAntenneAlt > LEDAntenne:
         X= LEDAntenne
         for i in range (X,LED_COUNT_2):
