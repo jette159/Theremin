@@ -132,7 +132,7 @@ def get_distanz_F():
 
     TimeElapsed = StopZeit_F - StartZeit_F                  # Zeitdifferenz zwischen Start und Ankunft
 
-    Distanz_F = round(float((TimeElapsed * 34300) / 2),0)  # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
+    Distanz_F = round(float((TimeElapsed * 34300) / 2),2)  # Daraus Entfernung berechnen (c=34300 cm/s und nur eine Strecke)
     print("Distanz",Distanz_F)
     return Distanz_F
 
